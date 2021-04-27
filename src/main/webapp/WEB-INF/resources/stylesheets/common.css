@@ -1,0 +1,38 @@
+@import "parts/header.css";
+@import "parts/footer.css";
+
+:root{
+    --border-color: #CDCDCD;
+    --font-default: 'Noto Sans KR', sans-serif;
+}
+
+/*body {*/
+/*    font-family: 'Noto Sans KR', sans-serif;*/
+/*    margin: 0;*/
+/*    !*overflow-x: hidden;*!*/
+/*}*/
+html, body{
+    position: relative;
+    min-width: 1400px;
+    font-family: var(--font-default);
+    margin: 0;
+    padding: 0;
+}
+
+li, ul{
+    list-style: none;
+}
+
+a:link, a:visited {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+input {
+    appearance: inherit;
+    border: inherit;
+    font: inherit;
+    margin: inherit;
+    outline: none;
+    padding: inherit;
+}

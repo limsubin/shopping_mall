@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//Dli Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsb.portfolio.shopping_mall.models.user.IUserModel">
+    <insert id="insertUser">
+        INSERT INTO `shoppingMall`.`users`(`email`, `password`, `nickname`, `name`, `contact`, `address`)
+        VALUES (#{email}, #{password}, #{nickname}, #{name}, #{contact}, #{address})
+    </insert>
+
+    <select id="selectEmailCount" parameterType="String" resultType="int">
+        SELECT COUNT(`index`) AS `count`
+        FROM `shoppingMall`.`users`
+        WHERE `email` = #{email}
+    </select>
+
+    <select id="selectNicknameCount" parameterType="String" resultType="int">
+        SELECT COUNT(`index`) AS `count`
+        FROM `shoppingMall`.`users`
+        WHERE `nickname` = #{nickname}
+    </select>
+
+    <select id="selectContactCount" parameterType="String" resultType="int">
+        SELECT COUNT(`index`) AS `count`
+        FROM `shoppingMall`.`users`
+        WHERE `contact` = #{contact}
+    </select>
+
+    <select id="selectLogin" parameterType="com.lsb.portfolio.shopping_mall.vos.user.UserVo" resultType="int">
+        SELECT COUNT(`index`) AS `count`
+        FROM `shoppingmall`.`users`
+        WHERE `email` = #{email}
+            AND `password` = #{password}
+    </select>
+
+    <select id="selectUser" resultType="com.lsb.portfolio.shopping_mall.dtos.user.UserDto">
+        SELECT `index`         AS `index`,
+               `email`         AS `email`,
+               `password`      AS `password`,
+               `nickname`      AS `nickname`,
+               `name`          AS `name`,
+               `contact`       AS `contact`,
+               `address`       AS `address`,
+               `registered_at` AS `registeredAt`,
+               `admin_flag`    AS `isAdmin`
+        FROM `shoppingMall`.`users`
+        WHERE `email` = #{email}
+          AND `password` = #{password}
+        LIMIT 1
+    </select>
+</mapper>
