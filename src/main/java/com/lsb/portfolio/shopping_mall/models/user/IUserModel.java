@@ -9,9 +9,9 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface IUserModel {
     void insertUser(UserRegisterVo userRegisterVo);
-    int selectEmailCount(String email);
-    int selectNicknameCount(String nickname);
-    int selectContactCount(String contact);
+    int selectEmailCount(@Param("email") String email);
+    int selectNicknameCount(@Param("nickname") String nickname);
+    int selectContactCount(@Param("contact") String contact);
 
     UserDto selectUser(
             @Param("email") String email,

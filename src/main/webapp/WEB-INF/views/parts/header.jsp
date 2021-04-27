@@ -53,7 +53,10 @@
     <div class="allMenu-warp">
         <ul>
             <li>
-                <i class="fas fa-bars"></i>
+                <button type="button" name="btn-allMenu">
+                    <i class="fas fa-bars"></i>
+                </button>
+
             </li>
             <li>
                 <div>
@@ -74,11 +77,18 @@
                     <li>
                         <a href="">가디건/조끼</a>
                     </li>
-                    <%--TODO li 서브 메뉴에 a태그 넣기--%>
-                    <li>야상/점퍼</li>
-                    <li>자켓/코트</li>
-                    <li>패딩</li>
-                    <li>플리스</li>
+                    <li>
+                        <a href="">야상/점퍼</a>
+                    </li>
+                    <li>
+                        <a href="">자켓/코트</a>
+                    </li>
+                    <li>
+                        <a href="">패딩</a>
+                    </li>
+                    <li>
+                        <a href="">플리스</a>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -86,11 +96,21 @@
                     <a href="">상의</a>
                 </div>
                 <ul class="submenu">
-                    <li>긴팔티셔츠</li>
-                    <li>맨투맨</li>
-                    <li>후드</li>
-                    <li>반팔/미소매티셔츠</li>
-                    <li>니트</li>
+                    <li>
+                        <a href="">긴팔티셔츠</a>
+                    </li>
+                    <li>
+                        <a href="">맨투맨</a>
+                    </li>
+                    <li>
+                        <a href="">후드</a>
+                    </li>
+                    <li>
+                        <a href="">반팔/미소매티셔츠</a>
+                    </li>
+                    <li>
+                        <a href="">니트</a>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -132,12 +152,24 @@
                     <a href="">팬츠</a>
                 </div>
                 <ul class="submenu">
-                    <li>청바지</li>
-                    <li>롱팬츠</li>
-                    <li>면바지</li>
-                    <li>슬랙스</li>
-                    <li>레깅스</li>
-                    <li>숏팬츠</li>
+                    <li>
+                        <a href="">청바지</a>
+                    </li>
+                    <li>
+                        <a href="">롱팬츠</a>
+                    </li>
+                    <li>
+                        <a href="">면바지</a>
+                    </li>
+                    <li>
+                        <a href="">슬랙스</a>
+                    </li>
+                    <li>
+                        <a href="">레깅스</a>
+                    </li>
+                    <li>
+                        <a href="">숏팬츠</a>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -145,8 +177,12 @@
                     <a href="">가방</a>
                 </div>
                 <ul class="submenu">
-                    <li>백팩/스쿨백</li>
-                    <li>크로스/토트백</li>
+                    <li>
+                        <a href="">백팩/스쿨백</a>
+                    </li>
+                    <li>
+                        <a href="">크로스/토트백</a>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -154,9 +190,15 @@
                     <a href="">신발</a>
                 </div>
                 <ul class="submenu">
-                    <li>운동화/단화</li>
-                    <li>구두/워커</li>
-                    <li>샌들/슬리피/장화</li>
+                    <li>
+                        <a href="">운동화/단화</a>
+                    </li>
+                    <li>
+                        <a href="">구두/워커</a>
+                    </li>
+                    <li>
+                        <a href="">샌들/슬리피/장화</a>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -164,9 +206,15 @@
                     <a href="">악세서리</a>
                 </div>
                 <ul class="submenu">
-                    <li>주얼리</li>
-                    <li>모자/벨트</li>
-                    <li>양말/스타킹</li>
+                    <li>
+                        <a href="">주얼리</a>
+                    </li>
+                    <li>
+                        <a href="">모자/벨트</a>
+                    </li>
+                    <li>
+                        <a href="">양말/스타킹</a>
+                    </li>
                 </ul>
             </li>
         </ul>

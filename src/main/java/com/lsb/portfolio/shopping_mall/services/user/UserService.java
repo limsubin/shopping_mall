@@ -29,6 +29,11 @@ public class UserService {
     }
 
     public void register(UserRegisterVo userRegisterVo){
+        if(userRegisterVo == null){
+            userRegisterVo.setUserRegisterResult(UserRegisterResult.FAILURE);
+            return;
+        }
+
         if(this.userModel.selectEmailCount(userRegisterVo.getEmail()) > 0){
             userRegisterVo.setUserRegisterResult(UserRegisterResult.DUPLICATE_EMAIL);
         }else if(this.userModel.selectNicknameCount(userRegisterVo.getNickname()) > 0){

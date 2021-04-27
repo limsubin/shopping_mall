@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 
 import java.util.Locale;
 
@@ -49,27 +50,49 @@ public class UserController {
             produces = MediaType.TEXT_HTML_VALUE)
     public String loginPost(UserLoginVo userLoginVo, Model model,
                           @ModelAttribute(UserDto.CLASS_NAME) UserDto userDto){
-//        if(userDto != null){
-//            return "redirect:/";
-//        }
+        if(userDto != null){
+            return "redirect:/";
+        }
 
         this.userService.login(userLoginVo);
         model.addAttribute(UserDto.CLASS_NAME, userLoginVo.getUserDto());
         model.addAttribute("result", userLoginVo.getUserLoginResult());
-        System.out.println("result: "+ userLoginVo.getUserLoginResult().name().toLowerCase());
+        System.out.println("login-result: "+ userLoginVo.getUserLoginResult().name().toLowerCase());
         return "user/user.login";
     }
 
+    @RequestMapping(
+            value = "/logout",
+            produces = MediaType.TEXT_HTML_VALUE)
+    public String logout(SessionStatus sessionStatus){
+        sessionStatus.setComplete();  //session.invalidate() : 지금 접속한 사용자의 세션 저장소를 초기화 한다.
+        return "user/user.login";
+    }
 
+    @RequestMapping(
+            value = "/register",
+            method = RequestMethod.GET,
+            produces = MediaType.TEXT_HTML_VALUE
+    )
+    public String registerGet(){
+        return "user/user.register";
+    }
 
-    @RequestMapping(value = "/register")
-    public String register(
-            UserRegisterVo userRegisterVo){
+    @RequestMapping(
+            value = "/register",
+            method = RequestMethod.POST,
+            produces = MediaType.TEXT_HTML_VALUE
+    )
+    public String registerPost(
+            UserRegisterVo userRegisterVo,
+            @ModelAttribute(UserDto.CLASS_NAME) UserDto userDto){
+        if(userDto != null){
+            // 이미 로그인이 된상태라서 등록 못한다는 거 표시
+            return "redirect:/";
+        }
         this.userService.register(userRegisterVo);
-
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("result", userRegisterVo.getUserRegisterResult().name().toLowerCase());
-        return jsonObject.toString(4);
+        System.out.println("register-result: "+ userRegisterVo.getUserRegisterResult().name().toLowerCase());
+        return "user/user.register";
     }
 
     @ModelAttribute(UserDto.CLASS_NAME)

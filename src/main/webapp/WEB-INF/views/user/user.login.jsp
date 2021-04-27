@@ -19,28 +19,29 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/views/parts/header.jsp" %>
-<form method="post" id="login-form">
-    <h1>LOGIN</h1>
-    <div>
-        <label hidden>이메일</label>
-        <input type="email" name="email" maxlength="50" minlength="0" placeholder="이메일" autofocus>
-    </div>
-    <div>
-        <label hidden>비밀번호</label>
-        <input type="password" name="password" maxlength="128" minlength="0" placeholder="비밀번호">
-    </div>
+<main class="login-wrap">
+    <form method="post" id="login-form">
+        <h1>LOGIN</h1>
+        <div>
+            <label hidden>이메일</label>
+            <input type="email" name="email" maxlength="50" minlength="0" placeholder="이메일" autofocus>
+        </div>
+        <div>
+            <label hidden>비밀번호</label>
+            <input type="password" name="password" maxlength="128" minlength="0" placeholder="비밀번호">
+        </div>
 
-    <input class="login-button" type="submit" value="로그인">
+        <input class="login-button" type="submit" value="로그인">
 
-    <div>
-        <ul class="link-box">
-            <li>일반회원</li>
-            <li>아이디 찾기</li>
-            <li>비밀번호 찾기</li>
-        </ul>
-    </div>
-
-</form>
+        <div>
+            <ul class="link-box">
+                <li>일반회원</li>
+                <li>아이디 찾기</li>
+                <li>비밀번호 찾기</li>
+            </ul>
+        </div>
+    </form>
+</main>
 <%@ include file="/WEB-INF/views/parts/footer.jsp" %>
 </body>
 </html>
