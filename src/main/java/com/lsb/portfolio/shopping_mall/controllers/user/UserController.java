@@ -36,10 +36,8 @@ public class UserController {
     public String loginGet(UserLoginVo userLoginVo,
                            @ModelAttribute(UserDto.CLASS_NAME) UserDto userDto){
         if(userDto == null){
-            System.out.println("로그인으로");
             return "user/user.login";
         }else{
-            System.out.println("홈으로");
             return "root/home";
         }
     }
@@ -93,6 +91,19 @@ public class UserController {
         this.userService.register(userRegisterVo);
         System.out.println("register-result: "+ userRegisterVo.getUserRegisterResult().name().toLowerCase());
         return "user/user.register";
+    }
+
+    @RequestMapping(
+            value = "/terms",
+            method = RequestMethod.GET,
+            produces = MediaType.TEXT_HTML_VALUE)
+    public String termsGet(
+                           @ModelAttribute(UserDto.CLASS_NAME) UserDto userDto){
+        if(userDto != null){
+            return "redirect:/";
+        }else{
+            return "user/user.terms";
+        }
     }
 
     @ModelAttribute(UserDto.CLASS_NAME)

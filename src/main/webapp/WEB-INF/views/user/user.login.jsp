@@ -8,11 +8,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>로그인</title>
-    <link rel="shortcut icon" href="#">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="/resources/stylesheets/common.css">
+    <%@ include file="/WEB-INF/views/parts/header-cdn.html" %>
     <link rel="stylesheet" href="/resources/stylesheets/user/login.css">
 <%--    <script src="/resources/scripts/user/login.js"></script>--%>
 <%--    <script src="/resources/scripts/class.ajax.js"></script>--%>

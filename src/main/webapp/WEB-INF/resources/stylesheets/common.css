@@ -28,7 +28,10 @@ a:link, a:visited {
     text-decoration: inherit;
 }
 
-input {
+input[type='password'],
+input[type='email'],
+input[type='text'],
+input[type='search']{
     appearance: inherit;
     border: inherit;
     font: inherit;

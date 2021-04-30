@@ -9,17 +9,16 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>로그인</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="/resources/stylesheets/common.css">
+    <%@ include file="/WEB-INF/views/parts/header-cdn.html" %>
     <link rel="stylesheet" href="/resources/stylesheets/user/register.css">
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="/resources/scripts/user/register.js"></script>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/parts/header.jsp" %>
 <main class="register-wrap">
     <h1>JOIN US</h1>
-    <form method="post" class="register-form">
+    <form method="post" id="register-form">
         <table>
             <tr>
                 <th>이메일</th>
@@ -62,9 +61,9 @@
                         <option value="017">017</option>
                     </select>
                     &#45;
-                    <input type="text" maxlength="4" name="contactSecond">
+                    <input type="text" maxlength="4" name="contactSecond" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" pattern="^([0-9]{4})$">
                     &#45;
-                    <input type="text" maxlength="4" name="contactThird">
+                    <input type="text" maxlength="4" name="contactThird" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"  pattern="^([0-9]{4})$">
 <%--                    <input type="text" name="contact" pattern="^(010)\-([0-9]{4})\-([0-9]{4})$" maxlength="15" minlength="0" placeholder="연락처">--%>
                 </td>
             </tr>
@@ -97,9 +96,9 @@
             <tr>
                 <th>주소</th>
                 <td>
-                    <input type="text" name="addressPost" class="addressPost" placeholder="우편번호" readonly>
+                    <input type="text" name="addressPost" id="addressPost" placeholder="우편번호" readonly>
                     <%-- 이거 클릭하면 클릭 이벤트 발생해서 주소 api 나오게 하기 --%>
-                    <input type="button" value="우편번호 찾기" class="address-button"><br>
+                    <input type="button" value="우편번호 찾기" id="address-button"><br>
                     <input type="text" id="address" placeholder="주소"><br>
                     <input type="text" id="addressDetails" placeholder="상세주소">
                 </td>
