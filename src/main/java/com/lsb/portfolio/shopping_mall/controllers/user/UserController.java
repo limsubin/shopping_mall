@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Locale;
 
 
@@ -98,10 +99,14 @@ public class UserController {
             method = RequestMethod.GET,
             produces = MediaType.TEXT_HTML_VALUE)
     public String termsGet(
-                           @ModelAttribute(UserDto.CLASS_NAME) UserDto userDto){
+            @ModelAttribute(UserDto.CLASS_NAME) UserDto userDto,
+            HttpServletRequest request,
+            Model model){
         if(userDto != null){
             return "redirect:/";
         }else{
+            model.addAttribute("strReferer", request.getHeader("referer"));
+            System.out.println("log : "+request.getHeader("referer"));
             return "user/user.terms";
         }
     }

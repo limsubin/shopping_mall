@@ -1,16 +1,14 @@
 @import "parts/header.css";
 @import "parts/footer.css";
+@import "object.css";
 
 :root{
-    --border-color: #CDCDCD;
+    --border-color: #9D9D9D;
     --font-default: 'Noto Sans KR', sans-serif;
+    --default-pink-color: #FF7D9E;
+    --border-radius-value: 0.7rem;
 }
 
-/*body {*/
-/*    font-family: 'Noto Sans KR', sans-serif;*/
-/*    margin: 0;*/
-/*    !*overflow-x: hidden;*!*/
-/*}*/
 html, body{
     position: relative;
     min-width: 1400px;

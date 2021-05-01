@@ -1,0 +1,40 @@
+.object-button {
+    appearance: none; /* 운영 체제의 테마를 기반으로 플랫폼에 기본 스타일을 사용하여 요소를 표시하는 데 사용 */
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    font-family: var(--font-default);
+    padding: inherit; /* inherit : 상위(부모) 엘리먼트의 스타일을 상속 받을 때 필요한 속성 */
+    text-align: center;
+    user-select: none; /* 드래그나 더블 클릭을 사용한 텍스트 선택 등을 막음 (none : 텍스트 선택 안됨) */
+    border-radius: var(--border-radius-value);
+}
+
+.object-button.prop-pink{
+    background-color: var(--default-pink-color);
+    color: #FFFFFF;
+}
+
+.object-button.prop-pink:hover{
+    color: #000000;
+}
+
+.object-button.prop-basic{
+    border: var(--border-color) solid 1px;
+    color: var(--border-color);
+    background-color: #FFFFFF;
+}
+
+.object-button.prop-basic:hover{
+    color: #000000;
+}
+
+.object-button.prop-dark{
+    border-bottom: #000000 solid 1px;
+    background: #39373A;
+    color: #FFFFFF;
+}
+
+.object-button.prop-dark:hover{
+    color: #000000;
+}

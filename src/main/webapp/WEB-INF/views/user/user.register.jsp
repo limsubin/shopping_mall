@@ -98,15 +98,15 @@
                 <td>
                     <input type="text" name="addressPost" id="addressPost" placeholder="우편번호" readonly>
                     <%-- 이거 클릭하면 클릭 이벤트 발생해서 주소 api 나오게 하기 --%>
-                    <input type="button" value="우편번호 찾기" id="address-button"><br>
+                    <input type="button" value="우편번호 찾기" id="address-button" class="object-button prop-pink"><br>
                     <input type="text" id="address" placeholder="주소"><br>
                     <input type="text" id="addressDetails" placeholder="상세주소">
                 </td>
             </tr>
         </table>
         <div>
-            <input type="submit" value="가입" class="register-button">
-            <input type="button" value="취소" class="cancel-button">
+            <input type="submit" value="가입" id="register-button" class="object-button prop-pink">
+            <input type="button" value="취소" id="cancel-button" class="object-button prop-basic">
         </div>
     </form>
 

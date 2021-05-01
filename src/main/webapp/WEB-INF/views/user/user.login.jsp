@@ -27,7 +27,7 @@
             <input type="password" name="password" maxlength="128" minlength="0" placeholder="비밀번호">
         </div>
 
-        <input class="login-button" type="submit" value="로그인">
+        <input id="login-button" class="object-button prop-dark" type="submit" value="로그인">
 
         <div>
             <ul class="link-box">

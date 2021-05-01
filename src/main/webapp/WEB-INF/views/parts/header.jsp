@@ -4,7 +4,7 @@
     <div class="login-wrap">
         <ul>
             <li>
-                <a href="/user/register">회원가입</a>
+                <a href="/user/terms">회원가입</a>
             </li>
             <li>
                 <a class="login-btn"  href="/user/login">로그인</a>
