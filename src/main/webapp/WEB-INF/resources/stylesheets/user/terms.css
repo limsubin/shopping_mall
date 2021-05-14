@@ -6,7 +6,7 @@ main.terms-wrap{
 
 main.terms-wrap > h1{
     margin: 3rem 0;
-    color: var(--default-pink-color);
+    color: var(--default-purple-color);
     font-size: 2.5rem;
 }
 
@@ -37,7 +37,7 @@ main.terms-wrap > ul > li > div.agreeAllCheck-wrap > input[type='checkbox']:chec
 main.terms-wrap > ul > li > div.agree-title > input[type="checkbox"]:checked + label i{
     background-color: #FFFFFF;
     border-radius: 50%;
-    color: var(--default-pink-color);
+    color: var(--default-purple-color);
     cursor: pointer;
 }
 
@@ -81,7 +81,7 @@ main.terms-wrap > ul > li.agree > div.agree-title{
 }
 
 main.terms-wrap > ul > li.agree > div.agree-title > label > span > b{
-    color: var(--default-pink-color);
+    color: var(--default-purple-color);
 }
 
 

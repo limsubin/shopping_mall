@@ -1,59 +1,52 @@
-div.container{
-
+body > footer{
+    width: 100%;
+    border-top: var(--border-color) solid 1px;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
 }
 
-div.container > div.top > ul > li >a.phone{
+body > footer > div.container{
+    width: 100%;
+}
+
+body > footer > div.container > div.top > ul > li >a.phone{
     font-size: 15px;
 }
 
-div.container > div.top > ul > li > table > tbody > tr > th{
+body > footer > div.container > div.top > ul > li > table > tbody > tr > th{
     font-size: 16px;
 }
 
-div.container > div.top > ul > li > table > tbody > tr > td.holiday{
+body > footer > div.container > div.top > ul > li > table > tbody > tr > td.holiday{
     color: red;
 }
 
-
-div.container > div.top > ul > li > table > tbody > tr > .txt-gray-wrap,
-div.container > div.top > ul > li.txt-gray-wrap{
+body > footer > div.container > div.top > ul > li > table > tbody > tr > .txt-gray-wrap,
+body > footer > div.container > div.top > ul > li.txt-gray-wrap{
     color: #989898;
     padding-right: 0.7rem;
 }
 
-div.container > div.top > ul > li.txt-pink-wrap{
+body > footer > div.container > div.top > ul > li.txt-pink-wrap{
     color: #F86979;
     font-weight: bold;
     font-size: 15px;
 }
 
-div.container > div.top > ul > li > table{
+body > footer > div.container > div.top > ul > li > table{
     padding-top: 1.5rem;
 }
 
-div.container > div.top > ul > li >a.phone > i{
+body > footer > div.container > div.top > ul > li >a.phone > i{
     color: #989898;
     font-size: 0.7rem;
     margin-right: 0.4rem;
 }
 
-div.container > div.top > ul{
-    padding: 0;
-    margin: 0 0.5rem
-}
-
-div.container > div.top > ul > li{
-    margin: 0.5rem;
-}
-
-
-div.container > div.top > ul > li > strong{
-    font-size: 16px;
-
-}
-
-div.container > div.top{
-    border-top: var(--border-color) solid 1px;
+body > footer > div.container > div.top{
     display: flex;
     padding: 2rem 4.5rem;
     font-size: 0.9rem;
@@ -61,7 +54,20 @@ div.container > div.top{
     justify-content: center;
 }
 
-div.container > div.bottom{
+body > footer > div.container > div.top > ul{
+    padding: 0;
+    margin: 0 0.5rem
+}
+
+body > footer > div.container > div.top > ul > li{
+    margin: 0.5rem;
+}
+
+body > footer > div.container > div.top > ul > li > strong{
+    font-size: 16px;
+}
+
+body > footer > div.container > div.bottom{
     padding: 1rem 0 0.5rem 0;
     height: 10rem;
     font-size: 0.8rem;
@@ -69,27 +75,27 @@ div.container > div.bottom{
     color: #ffffff;
 }
 
-div.container > div.bottom > div{
+body > footer > div.container > div.bottom > div{
     margin: 1rem 7rem;
 }
 
-div.container > div.bottom > div > ul{
+body > footer > div.container > div.bottom > div > ul{
     display: flex;
     padding: 0;
 }
 
-div.container > div.bottom > div > ul > li{
+body > footer > div.container > div.bottom > div > ul > li{
     font-size: 0.8rem;
     padding-right: 0.5rem;
     float: left;
     color: lightgray;
 }
 
-div.container > div.bottom > div > ul > li:after {
+body > footer > div.container > div.bottom > div > ul > li:after {
     content: "|";
     padding-left: 0.5rem;
 }
 
-div.container > div.bottom > div > ul > li:last-child:after{
+body > footer > div.container > div.bottom > div > ul > li:last-child:after{
     content: "";
 }

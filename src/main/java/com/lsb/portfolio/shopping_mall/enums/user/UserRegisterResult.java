@@ -1,4 +1,4 @@
-package com.lsb.portfolio.shopping_mall.nums;
+package com.lsb.portfolio.shopping_mall.enums.user;
 
 public enum UserRegisterResult {
     DUPLICATE_EMAIL,

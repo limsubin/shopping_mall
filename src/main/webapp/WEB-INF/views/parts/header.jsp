@@ -1,21 +1,29 @@
 <%@ page language="java" pageEncoding="UTF-8" contentType="text/html" trimDirectiveWhitespaces="true" %>
+<%@ page import="com.lsb.portfolio.shopping_mall.enums.user.UserLoginResult" %>
+<%@ page import="com.lsb.portfolio.shopping_mall.dtos.user.UserDto" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <header>
     <div class="login-wrap">
         <ul>
-            <li>
-                <a href="/user/terms">회원가입</a>
-            </li>
-            <li>
-                <a class="login-btn"  href="/user/login">로그인</a>
-            </li>
+            <c:if test="${sessionScope.UserDto.CLASS_NAME != null}">
+                <div>${userLoginVo.userDto.nickname}님 환영합니다.</div>
+            </c:if>
+            <c:if test="${userDto == null}">
+                <li>
+                    <a href="/user/terms">회원가입</a>
+                </li>
+                <li>
+                    <a class="login-btn"  href="/user/login">로그인</a>
+                </li>
+            </c:if>
         </ul>
     </div>
 
     <div class="top-wrap">
         <div>
             <a href="/">
-                <img src="/resources/images/logo.png" alt="로고" width="130" height="40">
+                <img src="/resources/images/logo-3.png" alt="로고" width="250" height="70">
             </a>
 
             <div class="search-box">
@@ -115,17 +123,6 @@
             </li>
             <li>
                 <div>
-                    <a href="">베스트</a>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <a href="">셔츠/블라우스</a>
-                </div>
-
-            </li>
-            <li>
-                <div>
                     <a href="">트레이닝</a>
                 </div>
 
@@ -218,5 +215,9 @@
                 </ul>
             </li>
         </ul>
+    </div>
+
+    <div class="allMenu-cover">
+
     </div>
 </header>

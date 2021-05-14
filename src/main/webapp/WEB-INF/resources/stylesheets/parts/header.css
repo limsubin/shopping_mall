@@ -24,7 +24,7 @@ div.login-wrap > ul > li{
 div.login-wrap > ul > li > .login-btn{
     width: 53px;
     height: 20px;
-    border: 1px solid black;
+    border: 1px solid #000000;
     border-radius: 3px;
     font-size: 11px;
     padding: 0.06rem 0.7rem;
@@ -50,8 +50,8 @@ div.top-wrap > div > img{
 div.top-wrap > div > div.search-box{
     padding: 0.2rem 1.4rem;
     border-radius: 25rem;
-    border: black solid 0.16rem;
-    margin: 0 2.5rem;
+    border: #000000 solid 0.16rem;
+    margin: 0 0.5rem;
 }
 
 div.top-wrap > div > div.search-box > div > span > i{
@@ -90,12 +90,12 @@ div.top-wrap > div >  div.my-menu > div > div.cart-count{
     left: -0.4rem;
     display: inline-block;
     color: white;
-    background: #FF7D9E;
+    background: var(--default-purple-color);
 }
 
 div.top-wrap > div > div.my-menu > div > .fa-heart:hover{
     transform: scale(1.2);
-    color: red;
+    color: #FF416F;
 }
 
 div.top-wrap > div > div.my-menu > div > .fa-shopping-cart{
@@ -106,7 +106,7 @@ div.top-wrap > div > div.my-menu > div > .fa-shopping-cart{
 
 div.top-wrap > div > div.my-menu > div > .fa-shopping-cart:hover{
     transform: scale(1.2);
-    color: #EFBC13;
+    color: var(--default-purple-color);
 }
 
 div.top-wrap > div > div.my-menu > div > .i-wrap{
@@ -129,7 +129,7 @@ div.top-wrap > div > div.rank-box{
     display: flex;
     flex: 1;
     margin: 0 4rem;
-    border-bottom: black solid 1px;
+    border-bottom: #000000 solid 1px;
 }
 
 div.top-wrap > div > div.rank-box > div.rank-title{
@@ -157,22 +157,13 @@ div.allMenu-warp > ul{
     padding: 0;
 }
 
-/*div.allMenu-warp{*/
-/*    overflow: auto;*/
-/*    position: absolute;*/
-/*    left: 0px;*/
-/*    top: 10px;*/
-/*    z-index: 1000;*/
-/*    padding: 100px 0 0 0;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    font-size: 0;*/
-/*    text-align: center;*/
-/*}*/
-
-/*div.allMenu-warp > ul > li{*/
-/*    float: left;*/
-/*}*/
+div.allMenu-warp > ul > li > button[name='btn-allMenu']{
+    border: none;
+    background-color: #FFFFFF;
+    font-size: 2rem;
+    cursor: pointer;
+    margin: 0.3rem 0.5rem 0 0;
+}
 
 div.allMenu-warp > ul > li > div{
     padding: 0.5rem;
@@ -185,13 +176,13 @@ div.allMenu-warp > ul > li > div > a{
 
 div.allMenu-warp > ul > li:not(:nth-child(1)):hover{
     color: white;
-    background-color: #FF7D9E;
+    background-color: var(--default-purple-color);
 }
 
 div.allMenu-warp > ul > li > i{
-    font-size: 2.2rem;
-    margin-right: 1.5rem;
-    font-weight: 400;
+    /*font-size: 2.2rem;*/
+    /*margin-right: 1.5rem;*/
+    /*font-weight: 400;*/
 }
 
 div.allMenu-warp > ul > li{
@@ -210,7 +201,7 @@ div.allMenu-warp > ul > li > ul.submenu{
 div.allMenu-warp > ul > li:hover > ul.submenu{
     display: block;
     color: white;
-    background-color: #FF7D9E;
+    background-color: var(--default-yellow-color);
 }
 
 div.allMenu-warp > ul > li:hover > ul.submenu > li:hover{
@@ -221,19 +212,32 @@ div.allMenu-warp > ul > li:hover > ul.submenu > li:hover{
 div.allMenu-warp > ul > li > ul.submenu:hover{
     display: block;
     color: white;
-    background-color: #FF7D9E;
+    background-color: var(--default-yellow-color);
 }
 
 div.allMenu-warp > ul > li:hover div{
     color: white;
-    background-color: #FF7D9E;
+    background-color: var(--default-yellow-color);
 }
 
 div.allMenu-warp > ul > li:nth-child(2){
-    color: #AB3FF8;
+    color: #BB8FC3;
 }
 
 div.allMenu-warp > ul > li:nth-child(3){
-    color: #FF416F;
+    color: var(--default-purple-color);
 }
 
+/*
+div.allMenu-cover{
+    width: 100%;
+    height: 100%;
+    background-color: var(--default-pink-color);
+    !*opacity: 1;*!
+    !*pointer-events: all;*!
+    top: 0;
+    left: 0;
+    !*backdrop-filter: blur(0.33rem);*!
+    position: fixed;
+    z-index: 998;
+}*/

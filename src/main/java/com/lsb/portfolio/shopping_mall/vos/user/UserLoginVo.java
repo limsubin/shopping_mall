@@ -1,7 +1,7 @@
 package com.lsb.portfolio.shopping_mall.vos.user;
 
 import com.lsb.portfolio.shopping_mall.dtos.user.UserDto;
-import com.lsb.portfolio.shopping_mall.nums.UserLoginResult;
+import com.lsb.portfolio.shopping_mall.enums.user.UserLoginResult;
 
 public class UserLoginVo {
     private final String email;

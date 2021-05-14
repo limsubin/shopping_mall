@@ -1,29 +1,48 @@
 package com.lsb.portfolio.shopping_mall.vos.user;
 
-import com.lsb.portfolio.shopping_mall.nums.UserRegisterResult;
+import com.lsb.portfolio.shopping_mall.enums.user.UserRegisterResult;
 
 public class UserRegisterVo {
     private final String email;
-    private final String nickname;
     private final String password;
+    private final String nickname;
     private final String name;
-    private final String contact;
+    private final String addressPost;
     private final String address;
+    private final String addressDetail;
+    private final String birthYear;
+    private final String birthMonth;
+    private final String birthDay;
+    private final String contactFirst;
+    private final String contactSecond;
+    private final String contactThird;
 
-    private UserRegisterResult userRegisterResult;
+    private UserRegisterResult result;
     private UserVo userVo;
 
-    public UserRegisterVo(String email, String nickname, String password, String name, String contact, String address) {
+    public UserRegisterVo(String email, String password, String nickname, String name, String addressPost, String address, String addressDetail, String birthYear, String birthMonth, String birthDay, String contactFirst, String contactSecond, String contactThird) {
         this.email = email;
-        this.nickname = nickname;
+        //TODO 해싱해볼까?
         this.password = password;
+        this.nickname = nickname;
         this.name = name;
-        this.contact = contact;
+        this.addressPost = addressPost;
         this.address = address;
+        this.addressDetail = addressDetail;
+        this.birthYear = birthYear;
+        this.birthMonth = birthMonth;
+        this.birthDay = birthDay;
+        this.contactFirst = contactFirst;
+        this.contactSecond = contactSecond;
+        this.contactThird = contactThird;
     }
 
     public String getEmail() {
         return email;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public String getNickname() {
@@ -34,24 +53,52 @@ public class UserRegisterVo {
         return name;
     }
 
-    public String getContact() {
-        return contact;
+    public String getAddressPost() {
+        return addressPost;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public String getPassword() {
-        return password;
+    public String getAddress_detail() {
+        return addressDetail;
     }
 
-    public UserRegisterResult getUserRegisterResult() {
-        return userRegisterResult;
+    public String getBirthYear() {
+        return birthYear;
     }
 
-    public void setUserRegisterResult(UserRegisterResult userRegisterResult) {
-        this.userRegisterResult = userRegisterResult;
+    public String getBirthMonth() {
+        return birthMonth;
+    }
+
+    public String getBirthDay() {
+        return birthDay;
+    }
+
+    public String getContactFirst() {
+        return contactFirst;
+    }
+
+    public String getContactSecond() {
+        return contactSecond;
+    }
+
+    public String getContactThird() {
+        return contactThird;
+    }
+
+    public String getAddressDetail() {
+        return addressDetail;
+    }
+
+    public UserRegisterResult getResult() {
+        return result;
+    }
+
+    public void setResult(UserRegisterResult result) {
+        this.result = result;
     }
 
     public UserVo getUserVo() {

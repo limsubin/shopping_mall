@@ -8,14 +8,13 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>로그인</title>
-    <link rel="stylesheet" href="/resources/stylesheets/common.css">
-    <link rel="stylesheet" href="/resources/stylesheets/user/login.css">
+    <%@ include file="/WEB-INF/views/parts/header-cdn.html" %>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/parts/header.jsp" %>
-<div>
-    로그인 성공
-</div>
+<main>
+<%--TODO 이미지 슬라이드--%>
+</main>
 <%@ include file="/WEB-INF/views/parts/footer.jsp" %>
 </body>
 </html>
