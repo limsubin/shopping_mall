@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//Dli Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsb.portfolio.shopping_mall.models.manager.IManagerModel">
+    <select id="selectCategories" resultType="com.lsb.portfolio.shopping_mall.dtos.category.CategoryDto">
+        SELECT `index` AS `index`,
+               `code`  AS `code`,
+               `name`  AS `name`
+        FROM `shopping-mall`.`product_categories`;
+    </select>
+
+    <select id="selectCategoryCount" resultType="_int">
+        SELECT COUNT(`index`) AS `count`
+        FROM `shopping-mall`.`product_categories`
+        WHERE `code` LIKE #{code}
+    </select>
+
+    <select id="selectLastInsertId" resultType="_int">
+        SELECT LAST_INSERT_ID()
+    </select>
+
+    <insert id="insertProduct">
+        INSERT INTO `shopping-mall`.`products`(`member_index`, `product_name`, `product_category`,
+                                               `product_price`, `image`, `product_content`)
+        VALUES (#{memberIndex}, #{productName}, #{productCategory}, #{productPrice}, #{thumbnail}, #{productContent})
+    </insert>
+
+    <insert id="insertSize">
+        INSERT INTO `shopping-mall`.`product_option_sizes` (`product_index`, `name`)
+        VALUES (#{productIndex}, #{name})
+    </insert>
+
+    <insert id="insertColor">
+        INSERT INTO `shopping-mall`.`product_option_colors` (`product_index`, `name`)
+        VALUES (#{productIndex}, #{name})
+    </insert>
+
+    <select id="selectSizeCount" resultType="_int">
+        SELECT COUNT(`index`) AS `count`
+        FROM `shopping-mall`.`product_option_sizes`
+        WHERE `product_index` = #{productIndex}
+          AND `name` = #{name}
+    </select>
+
+    <select id="selectColorCount" resultType="_int">
+        SELECT COUNT(`index`) AS `count`
+        FROM `shopping-mall`.`product_option_colors`
+        WHERE `product_index` = #{productIndex}
+          AND `name` = #{name}
+    </select>
+
+    <select id="selectLikeSizeIndex" resultType="_int">
+        SELECT `index` AS `index`
+        FROM `shopping-mall`.`product_option_sizes`
+        WHERE `product_index` = #{productIndex}
+          AND `name` LIKE #{name}
+    </select>
+
+    <select id="selectLikeColorIndex" resultType="_int">
+        SELECT `index` AS `index`
+        FROM `shopping-mall`.`product_option_colors`
+        WHERE `product_index` = #{productIndex}
+          AND `name` LIKE #{name}
+    </select>
+
+    <insert id="insertOptionDetail">
+        INSERT INTO `shopping-mall`.`product_option_detail` (`product_size_index`, `product_color_index`, `premium`, `stock`)
+        VALUES (#{sizeIndex}, #{colorIndex}, #{premium}, #{stock})
+    </insert>
+
+    <insert id="insertImage">
+        INSERT INTO `shopping-mall`.`product_images`(`key`, `image`)
+        VALUES (#{key}, #{image})
+    </insert>
+</mapper>

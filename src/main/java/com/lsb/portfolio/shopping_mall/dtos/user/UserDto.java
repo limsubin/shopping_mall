@@ -17,8 +17,9 @@ public class UserDto {
     private final String contactFirst;
     private final String contactSecond;
     private final String contactThird;
+    private final boolean isAdmin;
 
-    public UserDto(int index, String email, String password, String nickname, String name, String addressPost, String address, String address_detail, String birthYear, String birthMonth, String birthDay, String contactFirst, String contactSecond, String contactThird) {
+    public UserDto(int index, String email, String password, String nickname, String name, String addressPost, String address, String address_detail, String birthYear, String birthMonth, String birthDay, String contactFirst, String contactSecond, String contactThird, boolean isAdmin) {
         this.index = index;
         this.email = email;
         this.password = password;
@@ -33,6 +34,7 @@ public class UserDto {
         this.contactFirst = contactFirst;
         this.contactSecond = contactSecond;
         this.contactThird = contactThird;
+        this.isAdmin = isAdmin;
     }
 
     public int getIndex() {
@@ -88,5 +90,9 @@ public class UserDto {
 
     public String getContactThird() {
         return contactThird;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
     }
 }

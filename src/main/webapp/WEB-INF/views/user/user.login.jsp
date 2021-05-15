@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/resources/stylesheets/user/login.css">
     <script src="/resources/scripts/user/login.js"></script>
     <script>
-        ${userLoginVo.userLoginResult == UserLoginResult.FAILURE ? "alert('아이디 혹은 비밀번호가 맞지 않습니다. 다시 한번 시도해주십시오')" : ""}
+        ${userLoginVo.userLoginResult == UserLoginResult.FAILURE ? "alert('아이디 혹은 비밀번호가 맞지 않습니다. 다시 한번 시도해주십시오');" : ""}
     </script>
 </head>
 <body>
@@ -30,7 +30,7 @@
         </div>
         <div>
             <label hidden>비밀번호</label>
-            <input type="password" name="password" maxlength="128" minlength="0" value="${userLoginVo.password}" data-regex="<%= UserService.Regex.PASSWORD %>>" placeholder="비밀번호">
+            <input type="password" id="password" name="password" maxlength="128" minlength="0" data-regex="<%= UserService.Regex.PASSWORD %>>" placeholder="비밀번호">
         </div>
         <input id="login-button" class="object-button prop-dark" type="submit" value="로그인">
 

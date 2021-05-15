@@ -1,0 +1,86 @@
+body > main.create-wrap{
+    font-size: 1rem;
+    padding: 3rem 0;
+    margin: auto;
+    text-align: center;
+}
+
+body > main.create-wrap > form > table {
+    width: 80rem;
+    margin: auto;
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+
+}
+body > main.create-wrap > form > table > thead th {
+    padding: 10px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    vertical-align: top;
+    color: #369;
+    border-bottom: 3px solid #036;
+}
+
+body > main.create-wrap > form > table > tbody th {
+    width: 17rem;
+    font-size: 1rem;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    background: #f3f6f7;
+}
+
+body > main.create-wrap > form > table tr td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+
+body > main.create-wrap > form > div > .object-button.prop-dark{
+    width: 15rem;
+    height: 4rem;
+    font-size: 1.2rem;
+    margin: 1rem 0rem;
+}
+
+body > main.create-wrap > form > table > tbody > tr > td > label > select[name="category"]{
+    width: 14rem;
+    height: 2rem;
+    font-size: 1rem;
+}
+
+body > main.create-wrap > form > table > tbody > tr > td > label > div > img#preview-image {
+    display: none;
+}
+
+body > main.create-wrap > form > table > tbody > tr > td > label > div > img#preview-image.visible {
+    display: block;
+}
+
+body > main.create-wrap > form > table > tbody > tr.option-title {
+    display: none;
+}
+
+body > main.create-wrap > form > table > tbody > tr.option-title.visible {
+    display: table-row;
+}
+
+body > main.create-wrap > form > table > tbody > tr.option-list {
+    display: none;
+}
+
+body > main.create-wrap > form > table > tbody > tr.option-list.visible {
+    display: table-row;
+}
+
+body > main.create-wrap > form > table div.ck-editor{
+    width: 100%;
+}
+
+
+body > main.create-wrap > form > table div.ck-editor__editable_inline{
+    min-height: 20rem;
+}
