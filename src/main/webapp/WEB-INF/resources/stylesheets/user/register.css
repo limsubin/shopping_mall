@@ -1,14 +1,10 @@
+/*** 전체 스타일 ***/
 main.register-wrap{
     text-align: center;
     margin: 4rem 0;
 }
 
-main.register-wrap > h1{
-    margin: 3rem 0;
-    color: var(--default-purple-color);
-    font-size: 2.5rem;
-}
-
+/*** 회원가입 테이블 ***/
 main.register-wrap > form > table{
     padding: 2rem 0;
     border-top: #000000 solid 2px;
@@ -18,7 +14,6 @@ main.register-wrap > form > table{
 
 main.register-wrap > form > table > tbody > tr > td{
     padding: 0.5rem 2rem;
-    /*border: black solid 1px;*/
     text-align: left;
 }
 
@@ -27,6 +22,13 @@ main.register-wrap > form > table > tbody > tr > th{
     text-align: left;
 }
 
+main.register-wrap > form > table > tbody > tr > td > input{
+    width: 20rem;
+    padding: 0.5rem;
+    border-bottom: var(--border-color) solid 1px;
+}
+
+/*** 연락처 ***/
 main.register-wrap > form > table > tbody > tr > td > select[name="contactFirst"]{
     padding: 0.5rem 1rem;
     border-top: none;
@@ -34,6 +36,13 @@ main.register-wrap > form > table > tbody > tr > td > select[name="contactFirst"
     border-right: none;
 }
 
+main.register-wrap > form > table > tbody > tr > td > input[name="contactSecond"],
+main.register-wrap > form > table > tbody > tr > td > input[name="contactThird"]{
+    width: 6rem;
+    text-align: center;
+}
+
+/*** 생년월일 ***/
 main.register-wrap > form > table > tbody > tr > td > select[name="birthYear"],
 main.register-wrap > form > table > tbody > tr > td > select[name="birthMonth"],
 main.register-wrap > form > table > tbody > tr > td > select[name="birthDay"]{
@@ -44,23 +53,19 @@ main.register-wrap > form > table > tbody > tr > td > select[name="birthDay"]{
     margin-right: 2rem;
 }
 
+/*** 주소 ***/
 main.register-wrap > form > table > tbody > tr > td > #addressPost{
     width: 8rem;
 }
 
-main.register-wrap > form > table > tbody > tr > td > .object-button.prop-pink{
+/*** 버튼 ***/
+main.register-wrap > form > table > tbody > tr > td > .object-button.prop-purple{
     font-size: 1rem;
     width: 8rem;
     margin: 0.5rem 1.5rem;
 }
 
-main.register-wrap > form > table > tbody > tr > td > input[name="contactSecond"],
-main.register-wrap > form > table > tbody > tr > td > input[name="contactThird"]{
-    width: 6rem;
-    text-align: center;
-}
-
-main.register-wrap > form > div > .object-button.prop-pink{
+main.register-wrap > form > div > .object-button.prop-purple{
     height: 3rem;
     width: 10rem;
     margin: 2.5rem 0.5rem;
@@ -74,8 +79,20 @@ main.register-wrap > form > div > .object-button.prop-basic{
     font-size: 1.1rem;
 }
 
-main.register-wrap > form > table > tbody > tr > td > input{
-    width: 20rem;
-    padding: 0.5rem;
-    border-bottom: var(--border-color) solid 1px;
+main.register-success-wrap{
+    text-align: center;
+    margin: 7rem 0;
+}
+
+main.register-success-wrap > h1{
+    margin: 3rem 0;
+    color: var(--default-purple-color);
+    font-size: 2.5rem;
+}
+
+main.register-success-wrap > div > .object-button.prop-basic{
+    height: 1.5rem;
+    width: 11rem;
+    padding: 0.8rem 0 0.8rem 0;
+    font-size: 1.13rem;
 }

@@ -1,27 +1,70 @@
+/*** 전체 스타일 ***/
 header{
     padding-bottom: 1rem;
     border-bottom: #CDCDCD solid 1px;
 }
 
+/*** 로그인 버튼 ***/
 div.login-wrap{
     width: 100%;
+    height: 2.3rem;
     border-bottom: #CDCDCD solid 1px;
 }
 
-div.login-wrap > ul{
-    align-items: center;
-    display: flex;
-    justify-content: flex-end;
+div.login-wrap > div.logout,
+div.login-wrap > div.login{
     font-size: 0.8rem;
     margin: 0 10rem;
     padding: 0;
 }
 
-div.login-wrap > ul > li{
+div.login-wrap > div.logout > span{
     margin: 0.5rem 0.6rem;
+    float: right;
 }
 
-div.login-wrap > ul > li > .login-btn{
+/**test**/
+div.login-wrap > div.login > div.login-menu > div.title {
+    padding: 3px 18px;
+    font-size: 0.85rem;
+    border-radius: 10px;
+}
+div.login-wrap > div.login > div.login-menu {
+    position: relative;
+    display: inline-block;
+    float: right;
+    margin: 5px;
+}
+div.login-wrap > div.login > div.login-menu > div.content {
+    display: none;
+    position: absolute;
+    left: 9px;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    text-align: center;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+div.login-wrap > div.login > div.login-menu > div.content > a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+div.login-wrap > div.login > div.login-menu > div.content > a:hover {
+    background-color: #f1f1f1;
+}
+div.login-wrap > div.login > div.login-menu:hover div.content {
+    display: block;
+}
+
+/**test**/
+
+
+
+
+
+div.login-wrap > div.logout > span > a.login-btn{
     width: 53px;
     height: 20px;
     border: 1px solid #000000;
@@ -31,43 +74,67 @@ div.login-wrap > ul > li > .login-btn{
     line-height: 20px;
 }
 
+/*** 두번째 메뉴 ***/
 div.top-wrap{
-    margin: 0 14.4rem
-}
-
-div.top-wrap > div{
     align-items: center;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
+    margin: 2rem 14.4rem
+}
+
+/*div.top-wrap > div{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     margin: 2rem 0;
-}
+    !*float: left;*!
+}*/
 
-div.top-wrap > div > img{
+/*** 로고 ***/
+div.top-wrap > span > a > img{
     cursor: pointer;
+    /*margin-right: 1rem;
+    float: left;*/
 }
 
-div.top-wrap > div > div.search-box{
+/*** 검색창 ***/
+div.top-wrap > div.search-box{
+    width: 35rem;
+    height: 2.5rem;
     padding: 0.2rem 1.4rem;
     border-radius: 25rem;
     border: #000000 solid 0.16rem;
     margin: 0 0.5rem;
+    /* float: left;*/
 }
 
-div.top-wrap > div > div.search-box > div > span > i{
+div.top-wrap > div.search-box > form > label > div > span{
+    position: absolute;
+}
+
+div.top-wrap > div.search-box > form > label > div > span > i{
     position: relative;
-    top: 2px;
+    top: 7px;
+    left: -26px;
     font-weight: 800;
     font-size: 1.6rem;
     cursor: pointer;
 }
 
-div.top-wrap > div > div.search-box > div > input[type=search]{
+div.top-wrap > div.search-box > form > label > div > input[type=search]{
     height: 2rem;
-    width: 18rem;
+    width: 33rem;
 }
 
-div.top-wrap > div >  div.my-menu{
+div.top-wrap > div.search-box > form > input.search{
+    display: none;
+}
+
+/*** 메인 메뉴 ***/
+div.top-wrap > div.my-menu{
+    margin-left: 1rem;
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -75,12 +142,13 @@ div.top-wrap > div >  div.my-menu{
     text-align: center;
 }
 
-div.top-wrap > div >  div.my-menu > div{
+div.top-wrap > div.my-menu > div{
     margin-right: 0.6rem;
     cursor: pointer;
 }
 
-div.top-wrap > div >  div.my-menu > div > div.cart-count{
+/*** 장바구니 ***/
+div.top-wrap > div.my-menu > div > a > div.cart-count{
     border-radius: 100%;
     width: 1.4rem;
     height: 1.3rem;
@@ -93,39 +161,39 @@ div.top-wrap > div >  div.my-menu > div > div.cart-count{
     background: var(--default-purple-color);
 }
 
-div.top-wrap > div > div.my-menu > div > .fa-heart:hover{
+div.top-wrap > div.my-menu > div > a > .fa-heart:hover{
     transform: scale(1.2);
     color: #FF416F;
 }
 
-div.top-wrap > div > div.my-menu > div > .fa-shopping-cart{
+div.top-wrap > div.my-menu > div > a > .fa-shopping-cart{
     position: relative;
     top: 0;
     left: 0.73rem;
 }
 
-div.top-wrap > div > div.my-menu > div > .fa-shopping-cart:hover{
+div.top-wrap > div.my-menu > div > a > .fa-shopping-cart:hover{
     transform: scale(1.2);
     color: var(--default-purple-color);
 }
 
-div.top-wrap > div > div.my-menu > div > .i-wrap{
+div.top-wrap > div.my-menu > div > a > .i-wrap{
     font-size: 2.3rem;
     color: #505050;
 }
 
-div.top-wrap > div >  .my-menu > div > .good,
-div.top-wrap > div >  .my-menu > div > .cart{
+div.top-wrap > div.my-menu > div > a > .good,
+div.top-wrap > div.my-menu > div > a > .cart{
     font-size: 0.85rem;
-    margin: 0 0.5rem;
+    width: 4rem;
 }
 
-div.top-wrap > div >  .my-menu > div > .cart{
+div.top-wrap > div.my-menu > div > a > .cart{
     font-size: 0.85rem;
     margin-left: 1rem;
 }
 
-div.top-wrap > div > div.rank-box{
+/*div.top-wrap > div > div.rank-box{
     display: flex;
     flex: 1;
     margin: 0 4rem;
@@ -142,8 +210,9 @@ div.top-wrap > div > div.rank-box > div.rank-title > i{
     position: relative;
     top: 0;
     left: 160px;
-}
+}*/
 
+/*** 메뉴 리스트 ***/
 div.allMenu-warp{
     margin: 0 10rem;
 }
@@ -152,7 +221,7 @@ div.allMenu-warp > ul{
     align-items: center;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     text-align: center;
     padding: 0;
 }
@@ -160,30 +229,33 @@ div.allMenu-warp > ul{
 div.allMenu-warp > ul > li > button[name='btn-allMenu']{
     border: none;
     background-color: #FFFFFF;
-    font-size: 2rem;
     cursor: pointer;
     margin: 0.3rem 0.5rem 0 0;
 }
 
+div.allMenu-warp > ul > li > button[name='btn-allMenu'] > i{
+    font-size: 2rem;
+}
+
 div.allMenu-warp > ul > li > div{
-    padding: 0.5rem;
+    padding: 0.7rem 1.2rem;
 }
 
 div.allMenu-warp > ul > li > div > a{
-    font-size: 1rem;
-
+    font-size: 1.09rem;
 }
 
 div.allMenu-warp > ul > li:not(:nth-child(1)):hover{
     color: white;
     background-color: var(--default-purple-color);
+    z-index: 99;
 }
 
-div.allMenu-warp > ul > li > i{
-    /*font-size: 2.2rem;*/
-    /*margin-right: 1.5rem;*/
-    /*font-weight: 400;*/
-}
+/*div.allMenu-warp > ul > li > i{
+    !*font-size: 2.2rem;*!
+    !*margin-right: 1.5rem;*!
+    !*font-weight: 400;*!
+}*/
 
 div.allMenu-warp > ul > li{
     position: relative;
@@ -227,6 +299,69 @@ div.allMenu-warp > ul > li:nth-child(2){
 div.allMenu-warp > ul > li:nth-child(3){
     color: var(--default-purple-color);
 }
+
+/*** 전체 메뉴 보기 ***/
+div.allMenu-warp > div.allMenu-cover{
+    display: none;
+}
+
+div.allMenu-warp > div.allMenu-cover.visible{
+    position: relative;
+    top: -65px;
+    background-color: white;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+}
+
+
+div.allMenu-warp > div.allMenu-cover > div.box-category > div.box-list{
+    padding: 0.4rem 1.3rem;
+    float: left;
+    height: 12rem;
+}
+
+div.allMenu-warp > div.allMenu-cover > div.box-category > div.box-list:not(:nth-child(1)){
+    border-left: 1px solid #CDCDCD;
+}
+
+div.allMenu-warp > div.allMenu-cover > div.box-category > div.box-list > div.best-text{
+    color: #BB8FC3;
+}
+
+div.allMenu-warp > div.allMenu-cover > div.box-category > div.box-list > div.new-text{
+    color: var(--default-purple-color);
+}
+
+div.allMenu-warp > div.allMenu-cover > div.box-category > div.box-list > div{
+    text-align: center;
+}
+
+div.allMenu-warp > div.allMenu-cover > div.box-category > div.box-list > ul{
+    padding: 0;
+    text-align: left;
+    color: #5C5C5C;
+}
+
+div.allMenu-warp > div.allMenu-cover > div.box-category > div.box-list > div > a{
+    font-size: 1.09rem;
+}
+
+div.allMenu-warp > div.allMenu-cover > div.box-category > div.box-list > div > button{
+    border: none;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    margin: 0.3rem 0.5rem 0 0;
+}
+
+div.allMenu-warp > div.allMenu-cover > div.box-category > div.box-list > div > button > i{
+    font-size: 2.5rem;
+}
+
+
 
 /*
 div.allMenu-cover{

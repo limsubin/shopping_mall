@@ -7,6 +7,8 @@ import com.lsb.portfolio.shopping_mall.services.user.UserService;
 import com.lsb.portfolio.shopping_mall.vos.user.UserLoginVo;
 import com.lsb.portfolio.shopping_mall.vos.user.UserRegisterVo;
 import com.lsb.portfolio.shopping_mall.vos.user.UserVo;
+import net.sf.json.JSON;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -18,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 
 
 @Controller
-@SessionAttributes(UserDto.CLASS_NAME)
+@SessionAttributes({UserDto.CLASS_NAME, UserDto.CART_TOTAL_COUNT_NAME})
 @RequestMapping(value = "/user")
 public class UserController {
     private final UserService userService;
@@ -41,6 +43,7 @@ public class UserController {
         }
     }
 
+    @ResponseBody
     @RequestMapping(
             value = "/login",
             method = RequestMethod.POST,
@@ -55,19 +58,22 @@ public class UserController {
 
         this.userService.login(userLoginVo);
         model.addAttribute(UserDto.CLASS_NAME, userLoginVo.getUserDto());
+        model.addAttribute(UserDto.CART_TOTAL_COUNT_NAME, userLoginVo.getCartTotalCountDto());
         model.addAttribute("userLoginVo", userLoginVo);
-        System.out.println("login-result: "+ userLoginVo.getUserLoginResult().name().toLowerCase());
-        return userLoginVo.getUserLoginResult() == UserLoginResult.SUCCESS ?
-                "root/home" :
-                "user/user.login";
+        System.out.println("result: "+ userLoginVo.getResultName().toLowerCase());
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("result", userLoginVo.getResultName().toLowerCase());
+        return jsonObject.toString();
     }
 
     @RequestMapping(
             value = "/logout",
+            method = RequestMethod.GET,
             produces = MediaType.TEXT_HTML_VALUE)
     public String logout(SessionStatus sessionStatus){
         sessionStatus.setComplete();  //session.invalidate() : 지금 접속한 사용자의 세션 저장소를 초기화 한다.
-        return "root/home";
+        return "redirect:/shop";
     }
 
     @RequestMapping(

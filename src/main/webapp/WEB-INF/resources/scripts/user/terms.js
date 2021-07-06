@@ -38,7 +38,7 @@ window.addEventListener('DOMContentLoaded', function (){
             agreeUserCheckBox.focus();
             return false;
         }
-        //TODO 이메일 및 이용약관 동의한것도 DB에 넣고 싶은데 이걸 체크하고 다른 페이지로 가니까 GET으로 넘길 수 있는 방법 밑에꺼 말고 있는지 찾기
+
         if(agreeUserCheckBox.checked && agreePrivacyCheckBox.checked){
             window.location.href = "/user/register?agree=Y";
             return false;

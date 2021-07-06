@@ -9,7 +9,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>로그인</title>
-    <%@ include file="/WEB-INF/views/parts/header-cdn.html" %>
+    <%@ include file="/WEB-INF/views/parts/common.cdn.html" %>
     <link rel="stylesheet" href="/resources/stylesheets/user/terms.css">
     <script src="/resources/scripts/user/terms.js"></script>
     <script>
@@ -75,7 +75,7 @@
     </ul>
 
     <div>
-        <input type="button" value="동의" id="terms-button" class="object-button prop-pink">
+        <input type="button" value="동의" id="terms-button" class="object-button prop-purple">
         <input type="button" value="비동의" id="cancel-button" class="object-button prop-basic">
     </div>
 </main>

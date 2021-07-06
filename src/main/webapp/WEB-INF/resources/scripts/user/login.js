@@ -1,21 +1,42 @@
 window.addEventListener('DOMContentLoaded', () => {
     const loginForm = window.document.getElementById('login-form');
-    loginForm.onsubmit = function () {
-        let loginEmailRegex = loginForm['email'].dataset.regex;
-        let loginPasswordRegex = loginForm['password'].dataset.regex;
+    const loginButton = window.document.getElementById('login-button');
 
-        //TODO 밑에 if문에 alert() 제대로 동작하게 하기
-        //TODO 두 개의 input가 빈 값일때도 막기
-        if (!loginEmailRegex.test(loginForm['email'].value)) {
-            alert('올바른 이메일을 입력해주세요.');
+    loginForm.onsubmit = function () {
+        let loginEmailRegex = new RegExp(loginForm['email'].dataset.regex);
+        let loginPasswordRegex = new RegExp(loginForm['password'].dataset.regex);
+
+        if (loginForm['email'].value === '') {
+            alert('이메일을 입력해주세요.');
             loginForm['email'].focus();
             return false;
         }
-        if (!loginPasswordRegex.test(loginForm['password'].value)) {
-            alert('올바른 비밀번호를 입력해주세요.');
+
+        if (loginForm['password'].value === '') {
+            alert('비밀번호를 입력해주세요.');
             loginForm['password'].focus();
             return false;
         }
+
+        const callback = (resp) => {
+          let respJson = JSON.parse(resp);
+          switch(respJson['result']){
+              case 'success':
+                  location.href = "/shop";
+              break;
+            case 'failure':
+              alert('아이디 혹은 비밀번호가 맞지 않습니다. 다시 한번 시도해주십시오');
+              break;
+          }
+        };
+
+        const fallback = (status) => {
+            alert('예상치 못한 오류가 발생하였습니다. 관리자에게 문의해주십시오.');
+        };
+
+        let formData = new FormData(loginForm);
+        Ajax.request('POST', '/user/login', callback, fallback, formData);
+        return false;
     };
 });
 

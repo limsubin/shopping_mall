@@ -1,7 +1,8 @@
 package com.lsb.portfolio.shopping_mall.dtos.user;
 
 public class UserDto {
-    public static final String CLASS_NAME = "com.lsb.portfolio.shopping_mall.dtos.user.UserDto";
+    public static final String CLASS_NAME = "user"; //"com.lsb.portfolio.shopping_mall.dtos.user.UserDto";
+    public static final String CART_TOTAL_COUNT_NAME = "cartTotalCount";
 
     private final int index;
     private final String email;

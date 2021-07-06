@@ -1,7 +1,7 @@
 package com.lsb.portfolio.shopping_mall.interfaces;
 
 public interface IResult<T> {
-    T setResult();
-    void getResult();
-    void getResultName();
+    void setResult(T t);
+    T getResult();
+    String getResultName();
 }

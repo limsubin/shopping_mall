@@ -9,20 +9,15 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>로그인</title>
-    <%@ include file="/WEB-INF/views/parts/header-cdn.html" %>
+    <%@ include file="/WEB-INF/views/parts/common.cdn.html" %>
     <link rel="stylesheet" href="/resources/stylesheets/user/register.css">
 </head>
 <body>
 <%@ include file="/WEB-INF/views/parts/header.jsp" %>
-<%--TODO CSS 입히기--%>
-<main class="register-wrap">
-    <%-- 참고 페이지 : http://blog.naver.com/PostView.nhn?blogId=blogyourlife&logNo=220904177455&parentCategoryNo=&categoryNo=&viewDate=&isShowPopularPosts=false&from=postView --%>
+<main class="register-success-wrap">
     <h1>회원가입이 완료되었습니다.</h1>
-    <div>${register.name}님의 회원가입을 축하합니다.</div>
-    <hr>
     <div>
-        <input type="submit" value="가입" id="register-button" class="object-button prop-pink">
-        <input type="button" value="취소" id="cancel-button" class="object-button prop-basic">
+        <a href="/user/login" class="object-button prop-basic">로그인</a>
     </div>
 </main>
 <%@ include file="/WEB-INF/views/parts/footer.jsp" %>

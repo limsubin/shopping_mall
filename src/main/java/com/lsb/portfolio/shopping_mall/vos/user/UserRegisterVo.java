@@ -1,8 +1,9 @@
 package com.lsb.portfolio.shopping_mall.vos.user;
 
 import com.lsb.portfolio.shopping_mall.enums.user.UserRegisterResult;
+import com.lsb.portfolio.shopping_mall.interfaces.IResult;
 
-public class UserRegisterVo {
+public class UserRegisterVo implements IResult<UserRegisterResult> {
     private final String email;
     private final String password;
     private final String nickname;
@@ -22,7 +23,6 @@ public class UserRegisterVo {
 
     public UserRegisterVo(String email, String password, String nickname, String name, String addressPost, String address, String addressDetail, String birthYear, String birthMonth, String birthDay, String contactFirst, String contactSecond, String contactThird) {
         this.email = email;
-        //TODO 해싱해볼까?
         this.password = password;
         this.nickname = nickname;
         this.name = name;
@@ -93,10 +93,17 @@ public class UserRegisterVo {
         return addressDetail;
     }
 
+    @Override
     public UserRegisterResult getResult() {
         return result;
     }
 
+    @Override
+    public String getResultName() {
+        return this.result.name();
+    }
+
+    @Override
     public void setResult(UserRegisterResult result) {
         this.result = result;
     }

@@ -10,12 +10,12 @@
     border-radius: var(--border-radius-value);
 }
 
-.object-button.prop-pink{
+.object-button.prop-purple{
     background-color: var(--default-purple-color);
     color: #FFFFFF;
 }
 
-.object-button.prop-pink:hover{
+.object-button.prop-purple:hover{
     color: #000000;
 }
 
@@ -27,6 +27,7 @@
 
 .object-button.prop-basic:hover{
     color: #000000;
+    border: 1px solid #000000;
 }
 
 .object-button.prop-dark{
@@ -37,4 +38,14 @@
 
 .object-button.prop-dark:hover{
     color: #000000;
+}
+
+.warning-message{
+    text-align: center;
+    background-color: #586370;
+    border-radius: 5px;
+    width: 17rem;
+    margin: 4rem auto;
+    color: white;
+    padding: 1rem;
 }

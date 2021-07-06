@@ -4,7 +4,6 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 
-//TODO 해싱에 대해 알아보기
 public class CryptoUtil {
     public static class SHA1 {
         private SHA1() {}
