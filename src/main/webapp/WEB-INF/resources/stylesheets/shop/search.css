@@ -1,0 +1,60 @@
+/*** 전체 스타일 ***/
+main.search-wrap{
+    width: 90rem;
+    margin: auto;
+}
+
+/*** 검색어 ***/
+main.search-wrap > div.title{
+    margin: 4rem 1rem 1rem 1rem;
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--default-purple-color);
+}
+
+/*----*/
+/*** 상품 리스트 ***/
+main.search-wrap > div.search-list > ul{
+    display: inline-block;
+    float: left;
+    overflow: auto;
+}
+
+/*** 리스트 이미지 ***/
+main.search-wrap > div.search-list > ul > a > li > img{
+    border-radius: 15px;
+    border: 1px solid #e9ecef;
+}
+
+main.search-wrap > div.search-list > ul > a > li.nickname{
+    color: #888988;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 0.8rem;
+}
+
+/*** 상품 가격 ***/
+main.search-wrap > div.search-list > ul > a > li.price{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/*** 페이지 네이션 ***/
+main.search-wrap > div.pagination{
+    float: left;
+    text-align: center;
+    width: 100%;
+    margin: 3rem 1rem;
+}
+
+main.search-wrap > div.pagination > span{
+    margin: 1rem;
+}
+
+main.search-wrap > div.pagination > span.active > a{
+    background-color: var(--default-purple-color);
+    border-radius: 50%;
+    padding: 0.8rem 1.2rem;
+    color: #ffffff;
+}

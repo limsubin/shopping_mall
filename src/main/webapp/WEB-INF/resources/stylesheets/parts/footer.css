@@ -1,0 +1,101 @@
+body > footer{
+    width: 100%;
+    border-top: var(--border-color) solid 1px;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+}
+
+body > footer > div.container{
+    width: 100%;
+}
+
+body > footer > div.container > div.top > ul > li >a.phone{
+    font-size: 15px;
+}
+
+body > footer > div.container > div.top > ul > li > table > tbody > tr > th{
+    font-size: 16px;
+}
+
+body > footer > div.container > div.top > ul > li > table > tbody > tr > td.holiday{
+    color: red;
+}
+
+body > footer > div.container > div.top > ul > li > table > tbody > tr > .txt-gray-wrap,
+body > footer > div.container > div.top > ul > li.txt-gray-wrap{
+    color: #989898;
+    padding-right: 0.7rem;
+}
+
+body > footer > div.container > div.top > ul > li.txt-pink-wrap{
+    color: #F86979;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+body > footer > div.container > div.top > ul > li > table{
+    padding-top: 1.5rem;
+}
+
+body > footer > div.container > div.top > ul > li >a.phone > i{
+    color: #989898;
+    font-size: 0.7rem;
+    margin-right: 0.4rem;
+}
+
+body > footer > div.container > div.top{
+    display: flex;
+    padding: 2rem 4.5rem;
+    font-size: 0.9rem;
+    flex-direction: row;
+    justify-content: center;
+}
+
+body > footer > div.container > div.top > ul{
+    padding: 0;
+    margin: 0 0.5rem
+}
+
+body > footer > div.container > div.top > ul > li{
+    margin: 0.5rem;
+}
+
+body > footer > div.container > div.top > ul > li > strong{
+    font-size: 16px;
+}
+
+body > footer > div.container > div.bottom{
+    padding: 1rem 0 0.5rem 0;
+    height: 10rem;
+    font-size: 0.8rem;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+body > footer > div.container > div.bottom > div{
+    margin: 1rem 7rem;
+}
+
+body > footer > div.container > div.bottom > div > ul{
+    display: flex;
+    padding: 0;
+}
+
+body > footer > div.container > div.bottom > div > ul > li{
+    font-size: 0.8rem;
+    padding-right: 0.5rem;
+    float: left;
+    color: lightgray;
+}
+
+body > footer > div.container > div.bottom > div > ul > li:after {
+    content: "|";
+    padding-left: 0.5rem;
+}
+
+body > footer > div.container > div.bottom > div > ul > li:last-child:after{
+    content: "";
+}

@@ -1,0 +1,43 @@
+/*** 전체 스타일 ***/
+#login-form{
+    padding: 6rem 5rem;
+    text-align: center;
+}
+
+/*** 이메일, 비밀번호 ***/
+#login-form > div > input[type="email"],
+#login-form > div > input[type="password"]{
+    width: 25rem;
+    margin-top: 5px;
+    padding: 15px 0px;
+    border-bottom: #000000 solid 1px;
+    font-size: 14px;
+}
+
+/*** 버튼 ***/
+#login-form > .object-button.prop-dark{
+    width: 25rem;
+    margin: 1rem 0;
+    padding: 15px 0px;
+    font-size: 14px;
+}
+
+/*** 로그인 서브 메뉴 ***/
+#login-form > div > ul.link-box{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+}
+
+#login-form > div > ul.link-box > li:after {
+    content: "|";
+    padding: 1rem;
+}
+
+#login-form > div > ul.link-box > li:last-child:after{
+    content: "";
+    padding: 0rem;
+}
+

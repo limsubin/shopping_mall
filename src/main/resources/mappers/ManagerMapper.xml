@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//Dli Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsb.portfolio.shopping_mall.models.shop.manager.IManagerModel">
+    <select id="selectCategories" resultType="com.lsb.portfolio.shopping_mall.dtos.category.CategoryDto">
+        SELECT `index` AS `index`,
+               `code`  AS `code`,
+               `name`  AS `name`
+        FROM `shopping-mall`.`product_categories`;
+    </select>
+
+    <select id="selectSubCategories" resultType="com.lsb.portfolio.shopping_mall.dtos.category.SubCategoryDto">
+        SELECT `index`           AS `index`,
+               `categories_code` AS `categoryCode`,
+               `code`            AS `code`,
+               `name`            AS `name`
+        FROM `shopping-mall`.`product_categories_sub`;
+    </select>
+
+    <select id="selectBySubProductId" resultType="com.lsb.portfolio.shopping_mall.dtos.shop.ProductSubDto">
+        SELECT `index`               AS `index`,
+               `product_subCategory` AS `subCategory`
+        FROM `shopping-mall`.`products_sub`
+        WHERE `product_index` = #{productIndex}
+    </select>
+
+    <select id="selectBySubProductCount" resultType="_int">
+        SELECT COUNT(`index`) AS `count`
+        FROM `shopping-mall`.`products_sub`
+        WHERE `product_index` = #{productIndex}
+    </select>
+
+    <select id="selectCategoryCount" resultType="_int">
+        SELECT COUNT(`index`) AS `count`
+        FROM `shopping-mall`.`product_categories`
+        WHERE `code` LIKE #{code}
+    </select>
+
+    <select id="selectLastInsertId" resultType="_int">
+        SELECT LAST_INSERT_ID()
+    </select>
+
+    <insert id="insertProduct">
+        INSERT INTO `shopping-mall`.`products`(`member_index`, `product_name`, `product_category`,
+                                               `product_price`, `image`, `product_content`)
+        VALUES (#{memberIndex}, #{productName}, #{productCategory}, #{productPrice}, #{thumbnail}, #{productContent})
+    </insert>
+
+    <insert id="insertSubProduct">
+        INSERT INTO `shopping-mall`.`products_sub`(`member_index`, `product_index`, `product_subCategory`)
+        VALUES (#{memberIndex}, #{productIndex}, #{subCategory})
+    </insert>
+
+    <insert id="insertSize">
+        INSERT INTO `shopping-mall`.`product_option_sizes` (`product_index`, `name`)
+        VALUES (#{productIndex}, #{name})
+    </insert>
+
+    <insert id="insertColor">
+        INSERT INTO `shopping-mall`.`product_option_colors` (`product_index`, `name`)
+        VALUES (#{productIndex}, #{name})
+    </insert>
+
+    <select id="selectSizeCount" resultType="_int">
+        SELECT COUNT(`index`) AS `count`
+        FROM `shopping-mall`.`product_option_sizes`
+        WHERE `product_index` = #{productIndex}
+          AND `name` = #{name}
+    </select>
+
+    <select id="selectColorCount" resultType="_int">
+        SELECT COUNT(`index`) AS `count`
+        FROM `shopping-mall`.`product_option_colors`
+        WHERE `product_index` = #{productIndex}
+          AND `name` = #{name}
+    </select>
+
+    <select id="selectLikeSizeIndex" resultType="_int">
+        SELECT `index` AS `index`
+        FROM `shopping-mall`.`product_option_sizes`
+        WHERE `product_index` = #{productIndex}
+          AND `name` LIKE #{name}
+    </select>
+
+    <select id="selectLikeColorIndex" resultType="_int">
+        SELECT `index` AS `index`
+        FROM `shopping-mall`.`product_option_colors`
+        WHERE `product_index` = #{productIndex}
+          AND `name` LIKE #{name}
+    </select>
+
+    <insert id="insertOptionDetail">
+        INSERT INTO `shopping-mall`.`product_option_detail` (`product_size_index`, `product_color_index`, `premium`, `stock`)
+        VALUES (#{sizeIndex}, #{colorIndex}, #{premium}, #{stock})
+    </insert>
+
+    <insert id="insertImage">
+        INSERT INTO `shopping-mall`.`product_images`(`key`, `image`)
+        VALUES (#{key}, #{image})
+    </insert>
+
+    <select id="selectImage" resultType="com.lsb.portfolio.shopping_mall.dtos.image.ByteArrayDto">
+        SELECT `image` AS `value`
+        FROM `shopping-mall`.`product_images`
+        WHERE `key` = #{key}
+    </select>
+
+    <select id="selectProductImage" resultType="com.lsb.portfolio.shopping_mall.dtos.image.ByteArrayDto">
+        SELECT `image` AS `image`
+        FROM `shopping-mall`.`products`
+        WHERE `index` = #{productIndex}
+    </select>
+
+    <select id="selectOptionDetails" resultType="com.lsb.portfolio.shopping_mall.dtos.shop.ProductOptionDetailDto">
+        SELECT `detail`.product_size_index  AS `sizeIndex`,
+               `size`.`name`                AS `size`,
+               `detail`.product_color_index AS `colorIndex`,
+               `color`.`name`               AS `color`,
+               `detail`.premium             AS `premium`,
+               `detail`.stock               AS `stock`
+        FROM `shopping-mall`.`product_option_detail` AS `detail`
+                 LEFT JOIN `shopping-mall`.`product_option_sizes` AS `size`
+                           ON `detail`.`product_size_index` = `size`.`index`
+                 LEFT JOIN `shopping-mall`.`product_option_colors` AS `color`
+                           ON `detail`.`product_color_index` = `color`.`index`
+        WHERE `size`.`product_index` = ${productIndex}
+          AND `color`.`product_index` = ${productIndex}
+    </select>
+
+    <update id="updateOptionDetail">
+        UPDATE `shopping-mall`.`product_option_detail`
+        SET `premium` = #{premium},
+            `stock`   = #{stock}
+        WHERE `product_size_index` = #{sizeIndex}
+          AND `product_color_index` = #{colorIndex} LIMIT 1
+    </update>
+
+    <update id="updateProduct">
+        UPDATE `shopping-mall`.`products`
+        SET `product_name`     = #{productName},
+            `product_category` = #{productCategory},
+            `product_price`    = #{productPrice},
+            `product_content`  = #{productContent}
+        WHERE `member_index` = #{memberIndex}
+          AND `index` = #{productIndex} LIMIT 1
+    </update>
+
+    <update id="updateProductAndImage">
+        UPDATE `shopping-mall`.`products`
+        SET `product_name`     = #{productName},
+            `product_category` = #{productCategory},
+            `product_price`    = #{productPrice},
+            `image`            = #{thumbnail},
+            `product_content`  = #{productContent}
+        WHERE `member_index` = #{memberIndex}
+          AND `index` = #{productIndex} LIMIT 1
+    </update>
+
+    <update id="updateSubProduct">
+        UPDATE `shopping-mall`.`products_sub`
+        SET `product_subCategory` = #{subCategory}
+        WHERE `member_index` = #{memberIndex}
+          AND `product_index` = #{productIndex} LIMIT 1
+    </update>
+
+    <delete id="deleteSubProduct">
+        DELETE
+        FROM `shopping-mall`.`products_sub`
+        WHERE `member_index` = #{memberIndex}
+          AND `product_index` = #{productIndex} LIMIT 1
+    </delete>
+
+    <delete id="deleteOptionDetail">
+        DELETE
+        FROM `shopping-mall`.`product_option_detail`
+        WHERE `product_size_index` = #{sizeIndex}
+          AND `product_color_index` = #{colorIndex} LIMIT 1
+    </delete>
+
+    <select id="selectSizes" resultType="com.lsb.portfolio.shopping_mall.dtos.shop.ProductSizeDto">
+        SELECT `index` AS `index`,
+               `name`  AS `name`
+        FROM `shopping-mall`.`product_option_sizes`
+        WHERE `product_index` = #{productIndex}
+    </select>
+
+    <select id="selectColors" resultType="com.lsb.portfolio.shopping_mall.dtos.shop.ProductColorDto">
+        SELECT `index` AS `index`,
+               `name`  AS `name`
+        FROM `shopping-mall`.`product_option_colors`
+        WHERE `product_index` = #{productIndex}
+    </select>
+
+    <delete id="deleteSize">
+        DELETE
+        FROM `shopping-mall`.`product_option_sizes`
+        WHERE `index` = #{sizeIndex} LIMIT 1
+    </delete>
+
+    <delete id="deleteColor">
+        DELETE
+        FROM `shopping-mall`.`product_option_colors`
+        WHERE `index` = #{colorIndex} LIMIT 1
+    </delete>
+
+    <delete id="deleteProduct">
+        DELETE
+        FROM `shopping-mall`.`products`
+        WHERE `index` = #{productIndex}
+          AND `member_index` = ${memberIndex} LIMIT 1
+    </delete>
+
+    <select id="selectProductByMemberCount" resultType="_int">
+        SELECT COUNT(`index`) AS `count`
+        FROM `shopping-mall`.`products`
+        WHERE `member_index` = #{memberIndex}
+    </select>
+
+    <select id="selectProductByMember" resultType="com.lsb.portfolio.shopping_mall.dtos.shop.ProductDto">
+        SELECT `index`            AS `index`,
+               `member_index`     AS `memberIndex`,
+               `product_name`     AS `productName`,
+               `product_category` AS `productCategory`,
+               `product_price`    AS `productPrice`,
+               TO_BASE64(`image`) AS `imageBase64`,
+               `image`            AS `image`,
+               `product_hit`      AS `productHit`,
+               `product_content`  AS `productContent`,
+               `product_view`     AS `productView`
+        FROM `shopping-mall`.`products`
+        WHERE `member_index` = #{memberIndex}
+        ORDER BY `index` DESC
+        LIMIT #{perPage} OFFSET #{offset}
+    </select>
+</mapper>

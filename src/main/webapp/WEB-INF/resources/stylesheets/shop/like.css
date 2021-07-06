@@ -1,0 +1,131 @@
+/*** 전체 스타일 ***/
+main.like-wrap{
+    width: 90rem;
+    margin: auto;
+}
+
+/*** 제목 ***/
+main.like-wrap > form > div.like > div.title{
+    margin: 4rem 1rem 1rem 1rem;
+    font-size: 1.65rem;
+    font-weight: bold;
+}
+
+/*** 마이 페이지 사용자 정보 ***/
+main.like-wrap > form > div.myPage-info{
+    height: 5rem;
+    margin-top: 4rem;
+    border: 1px solid #CFCFCF;
+    border-radius: 14px;
+    padding: 1.4rem 3.7rem;
+}
+
+main.like-wrap > form > div.myPage-info > div.user{
+    float: left;
+    padding: 1.5rem 0;
+    margin-left: 1rem;
+    font-size: 1.2rem;
+}
+
+main.like-wrap > form > div.myPage-info > div.userIcon > i{
+    float: left;
+    font-size: 4.5rem;
+    margin-right: 0.7rem;
+    color: #DBDBDB;
+    display: inline-block;
+    border: 2px solid #FF96B0;
+    border-radius: 50px;
+}
+
+main.like-wrap > form > div.myPage-info > div.menu{
+    float: right;
+    padding: 1.5rem 0;
+    margin-left: 1rem;
+}
+
+main.like-wrap > form > div.myPage-info > div.menu > span{
+    cursor: pointer;
+}
+
+main.like-wrap > form > div.myPage-info > div.menu > span:not(:last-child)::after{
+    content: '';
+    display: inline-block;
+    width: 2px;
+    height: 22px;
+    margin: 0 2rem;
+    vertical-align: middle;
+    background: #E7E7E7;
+}
+
+main.like-wrap > form > div.like > div.title > i{
+    color: #FF6080;
+}
+
+/*** 좋아요 리스트 ***/
+main.like-wrap > form > div.like > ul{
+    float: left;
+}
+
+/*** 이미지 ***/
+main.like-wrap > form > div.like > ul > a > li.image{
+    position : relative;
+}
+
+main.like-wrap > form > div.like > ul > a > li.image > div#like-toggle{
+    position: absolute;
+    top: 200px;
+    left: 186px;
+}
+
+main.like-wrap > form > div.like > ul > a > li.image > img{
+    border-radius: 15px;
+    border: 1px solid #e9ecef;
+}
+
+/*** 상품가격 ***/
+main.like-wrap > form > div.like > ul > a > li.price{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+main.like-wrap > form > div.like > ul > a > li.price::after{
+    content: '원';
+}
+
+/*** 체크박스 ***/
+main.like-wrap > form > div > ul > a > li.image > div#like-toggle > input[name="like"],
+main.like-wrap > form > div > ul > a > li.image > div#like-toggle > input[name="like"]{
+    display: none;
+}
+
+main.like-wrap > form > div > ul > a > li.image > div#like-toggle > input[name="like"] + label i,
+main.like-wrap > form > div > ul > a > li.image > div#like-toggle > input[name="like"] + label i{
+    color: #A6A6A6;
+    cursor:pointer;
+    font-size: 2.2rem;
+}
+
+main.like-wrap > form > div > ul > a > li.image > div#like-toggle > input[name="like"]:checked + label i,
+main.like-wrap > form > div > ul > a > li.image > div#like-toggle > input[name="like"]:checked + label i{
+    color: #FF6080;
+    cursor: pointer;
+}
+
+/*** 페이지 네이션 ***/
+main.like-wrap > form > div.pagination{
+    float: left;
+    text-align: center;
+    width: 100%;
+    margin: 3rem 1rem;
+}
+
+main.like-wrap > form > div.pagination > span{
+    margin: 1rem;
+}
+
+main.like-wrap > form > div.pagination > span.active > a{
+    background-color: var(--default-purple-color);
+    border-radius: 50%;
+    padding: 0.8rem 1.2rem;
+    color: #ffffff;
+}

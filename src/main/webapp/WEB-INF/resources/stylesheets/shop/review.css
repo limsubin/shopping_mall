@@ -1,0 +1,195 @@
+/*** 전체 스타일 ***/
+main.review-wrap{
+    width: 90rem;
+    margin: 4rem auto;
+    text-align: center;
+}
+
+/*제목*/
+main.review-wrap > div.title{
+    font-size: 2rem;
+    color: var(--default-purple-color);
+    font-weight: bold;
+}
+
+/*** 상품 정보 ***/
+main.review-wrap > div.product-wrap > table{
+    width: 70%;
+    margin: 2rem auto;
+    border: 1px solid #CFCFCF;
+    border-collapse: collapse;
+}
+
+main.review-wrap > div.product-wrap > table > thead{
+    text-align: center;
+    background-color: #F0F8FF;
+}
+
+main.review-wrap > div.product-wrap > table > tbody > tr > td:not(.options-wrap){
+    text-align: center;
+}
+
+main.review-wrap > div.product-wrap > table > thead > tr.title-wrap{
+    border-bottom: 1px solid #CFCFCF;
+}
+
+main.review-wrap > div.product-wrap > table td, th{
+    padding: 1rem;
+}
+
+/*상품명*/
+main.review-wrap > div.product-wrap > table > tbody > tr > td > div.productName-wrap{
+    text-align: left;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 0.4rem 0 0.4rem 0;
+    color: #1C4284;
+}
+
+/*옵션(사이즈, 색상)*/
+main.review-wrap > div.product-wrap > table > tbody > tr > td.options-wrap{
+    width: 33rem;
+    padding: 2rem 1rem;
+    text-align: left;
+}
+
+main.review-wrap > div.product-wrap > table > tbody > tr > td > div > span.size-title,
+main.review-wrap > div.product-wrap > table > tbody > tr > td > div > span.color-title{
+    width: 4.5rem;
+    padding: 0.4rem 0 0.4rem 0;
+    display: inline-block;
+}
+
+/*가격*/
+main.review-wrap > div.product-wrap > table > tbody > tr > td.price-wrap{
+    font-size: 1.15rem;
+    color: #AE0000;
+    font-weight: bold;
+}
+
+main.review-wrap > div.product-wrap > table > tbody > tr > td.price-wrap::after{
+    content: '원';
+}
+
+/*상품 이미지*/
+main.review-wrap > div.product-wrap > table > tbody .image-wrap{
+    width: 10rem;
+}
+
+/*'리뷰 작성' 버튼*/
+main.review-wrap > form#review-form > div.review_rating > input.review-button-wrap{
+    border-radius: 15px;
+    width: 14rem;
+    padding: 1.2rem;
+    border: 1px solid #8E8E8E;
+    color: #ffffff;
+    display: inline-block;
+    margin: 0;
+    background-color: #1C1C1C;
+    font-size: 1.2rem
+}
+
+main.review-wrap > form#review-form > div.review_rating > input.review-button-wrap:hover{
+    cursor: pointer;
+    background-color: #454545;
+}
+
+main.review-wrap > div.product-wrap > table > tbody > tr > td > div.review-button-wrap:hover{
+    border: 1px solid black;
+    color: black;
+}
+
+main.review-wrap > div.product-wrap > table > tbody > tr > td > div.review-message{
+    width: 8rem;
+    background-color: var(--default-purple-color);
+    color: #FFFFFF;
+    display: inline-block;
+    text-align: center;
+    padding: 0.2rem 0;
+    border-radius: 6px;
+}
+
+
+/*** 별점 ***/
+main.review-wrap >  form#review-form > .review_rating{
+    width: 70%;
+    margin: auto;
+}
+
+main.review-wrap >  form#review-form > .review_rating > table{
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    width: 70%;
+    margin: 2rem auto;
+}
+
+main.review-wrap > form#review-form > .review_rating > table .rating{
+    margin-bottom: 1rem;
+}
+
+main.review-wrap > form#review-form > .review_rating > table tbody{
+    border-top: 3px solid var(--default-purple-color);
+    font-size: 2rem;
+}
+
+main.review-wrap > form#review-form > .review_rating > table tbody th{
+    width: 5rem;
+    font-size: 19px;
+    padding: 4rem 2rem 4.2rem 2rem;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    display: inline-block;
+}
+
+main.review-wrap > form#review-form > .review_rating > table tbody textarea{
+    margin: 1rem;
+}
+
+main.review-wrap > form#review-form > .review_rating > table tbody td{
+    border-bottom: 1px solid #ccc;
+}
+
+main.review-wrap > form#review-form > .review_rating > table thead td{
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+
+main.review-wrap > form#review-form > .review_rating > table thead th::before{
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 27px;
+    margin-right: 10px;
+    vertical-align: middle;
+    background: var(--default-purple-color);
+}
+
+main.review-wrap > form#review-form > .review_rating > input[type='submit'].object-button{
+    width: 15rem;
+    height: 3rem;
+    font-size: 17px;
+}
+
+main.review-wrap > form#review-form > .review_rating > table .rating .rate_radio {
+    position: relative;
+    z-index: 20;
+    opacity: 0.001;
+    background-color: #fff;
+    cursor: pointer;
+    display: none;
+}
+
+main.review-wrap > form#review-form > .review_rating > table .rating .rate_radio + label {
+    position: relative;
+    display: inline-block;
+    z-index: 10;
+    cursor: pointer;
+    color: #DCDDDE;
+}
+
+main.review-wrap > form#review-form > .review_rating > table .rating .rate_radio:checked + label {
+    color: #F0CA4F;
+}

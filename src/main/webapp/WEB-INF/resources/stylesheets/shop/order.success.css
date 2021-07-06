@@ -1,0 +1,111 @@
+/*** 전체 스타일 ***/
+main.order-success-wrap{
+    width: 90rem;
+    margin: 4rem auto;
+    text-align: center;
+}
+
+/*** START 주문 현황 ***/
+/* 제목 */
+main.order-success-wrap > div.step > div.step-title{
+    margin-bottom: 1rem;
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--default-purple-color);
+}
+
+/* 내용 */
+main.order-success-wrap > div.step > div.step-content{
+    margin: 2rem 19rem;
+    height: 8rem;
+    text-align: center;
+}
+
+main.order-success-wrap > div.step >  div.step-content > ul{
+    margin: auto;
+    position: relative;
+}
+
+main.order-success-wrap > div.step >  div.step-content > ul > li{
+    float: left;
+    margin: 0 4rem;
+    padding: 1.6rem 1.5rem;
+    border: 1px solid #AEAEAE;
+    color: #AEAEAE;
+    border-radius: 89px;
+    font-size: 1.1rem;
+}
+
+main.order-success-wrap > div.step >  div.step-content > ul > li.step2{
+    padding: 1.6rem 1.3rem;
+}
+
+main.order-success-wrap > div.step >  div.step-content > ul > li.step1:before{
+    content: '';
+    position: absolute;
+    left: 13.8rem;
+    top: 3.5rem;
+    margin: -1px 0 0 0;
+    width: 128px;
+    height: 1px;
+    background: #D3D3D3;
+}
+
+main.order-success-wrap > div.step >  div.step-content > ul > li.step2:before{
+    content: '';
+    position: absolute;
+    left: 29rem;
+    top: 3.5rem;
+    margin: -1px 0 0 0;
+    width: 128px;
+    height: 1px;
+    background: #D3D3D3;
+}
+
+main.order-success-wrap > div.step >  div.step-content > ul > li > i{
+    font-size: 2.4rem;
+}
+
+main.order-success-wrap > div.step >  div.step-content > ul > li.step3.on{
+    border: 2px solid #FF8080;
+    color: #FF8080;
+    font-weight: bold;
+}
+/*** END 주문 현황 ***/
+
+/***결제 완료 메시지***/
+main.order-success-wrap > div.success-message{
+    display: inline-block;
+    border-radius: 14px;
+    border: 1px solid #CFCFCF;
+    width: 38rem;
+    margin: 0;
+}
+
+main.order-success-wrap > div.success-message > div.home{
+    margin: 2rem;
+}
+
+main.order-success-wrap > div.success-message > div{
+    margin: 1rem;
+}
+main.order-success-wrap > div.success-message > div.title > i{
+    font-size: 3.5rem;
+    color: #FF7D9E;
+}
+
+main.order-success-wrap > div.success-message > div.title > div{
+    font-size: 2rem;
+}
+
+/*내용*/
+main.order-success-wrap > div.success-message > div.content{
+    font-size: 20px;
+    color: #929292;
+}
+
+main.order-success-wrap > div.success-message > div.content a{
+    text-decoration: underline;
+    color: cornflowerblue;
+}

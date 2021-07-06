@@ -1,0 +1,48 @@
+@import "parts/header.css";
+@import "parts/footer.css";
+@import "object.css";
+
+:root{
+    --border-color: #9D9D9D;
+    --font-default: 'Noto Sans KR', sans-serif;
+    --default-purple-color: #3F51B5;
+    --default-yellow-color:#F8CA00;
+    --border-radius-value: 0.7rem;
+}
+
+html, body{
+    position: relative;
+    min-width: 1400px;
+    font-family: var(--font-default);
+    margin: 0;
+    padding: 0;
+}
+
+li, ul{
+    list-style: none;
+}
+
+a:link, a:visited {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+input[type='password'],
+input[type='email'],
+input[type='text'],
+input[type='search'],
+input[type='number']{
+    appearance: inherit;
+    border: inherit;
+    font: inherit;
+    margin: inherit;
+    outline: none;
+    padding: inherit;
+}
+
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
