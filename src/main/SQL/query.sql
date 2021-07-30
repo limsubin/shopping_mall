@@ -1,54 +1,54 @@
 CREATE DATABASE `shopping-mall`;
 
-
+-- //사용자
 CREATE TABLE `shopping-mall`.`members`
 (
     `index`          INT UNSIGNED     NOT NULL AUTO_INCREMENT,
-    `email`          NVARCHAR(50)     NOT NULL,
-    `password`       NVARCHAR(128)    NOT NULL,
-    `nickname`       NVARCHAR(10)     NOT NULL,
-    `name`           NVARCHAR(10)     NOT NULL,
-    `address_post`   NVARCHAR(5)      NOT NULL,
-    `address`        NVARCHAR(100)    NOT NULL,
-    `address_detail` NVARCHAR(100)    NOT NULL,
-    `birth_year`     NVARCHAR(4)      NOT NULL,
-    `birth_month`    NVARCHAR(2)      NOT NULL,
-    `birth_day`      NVARCHAR(2)      NOT NULL,
-    `level`          TINYINT UNSIGNED NOT NULL DEFAULT 9,
-    `contact_first`  NVARCHAR(3)      NOT NULL,
-    `contact_second` NVARCHAR(4)      NOT NULL,
-    `contact_third`  NVARCHAR(4)      NOT NULL,
-    `registered_at`  DATETIME         NOT NULL DEFAULT NOW(),
-    `admin_flag`     BOOLEAN          NOT NULL DEFAULT FALSE,
+    `email`          NVARCHAR(50)     NOT NULL,               -- 이메일
+    `password`       NVARCHAR(128)    NOT NULL,               -- 비말번호
+    `nickname`       NVARCHAR(10)     NOT NULL,               -- 별명
+    `name`           NVARCHAR(10)     NOT NULL,               -- 이름
+    `address_post`   NVARCHAR(5)      NOT NULL,               -- 우편번호
+    `address`        NVARCHAR(100)    NOT NULL,               -- 주소
+    `address_detail` NVARCHAR(100)    NOT NULL,               -- 상세 주소
+    `birth_year`     NVARCHAR(4)      NOT NULL,               -- 생일 년
+    `birth_month`    NVARCHAR(2)      NOT NULL,               -- 생일 월
+    `birth_day`      NVARCHAR(2)      NOT NULL,               -- 생일 일
+    `level`          TINYINT UNSIGNED NOT NULL DEFAULT 9,     -- 접근권한 레벨
+    `contact_first`  NVARCHAR(3)      NOT NULL,               -- 전화번호 앞자리
+    `contact_second` NVARCHAR(4)      NOT NULL,               -- 전화번호 중간자리
+    `contact_third`  NVARCHAR(4)      NOT NULL,               -- 전화번호 끝자리
+    `registered_at`  DATETIME         NOT NULL DEFAULT NOW(), -- 가입 날짜
+    `admin_flag`     BOOLEAN          NOT NULL DEFAULT FALSE, -- 관리자 권한
     CONSTRAINT PRIMARY KEY (`index`),
     CONSTRAINT UNIQUE (`email`),
     CONSTRAINT UNIQUE (`nickname`),
     CONSTRAINT UNIQUE (`contact_first`, `contact_second`, `contact_third`)
 );
 
+-- //상품 메인 카테고리
 CREATE TABLE `shopping-mall`.`product_categories`
 (
     `index` INT UNSIGNED  NOT NULL AUTO_INCREMENT,
-    `code`  NVARCHAR(20)  NOT NULL,
-    `name`  NVARCHAR(100) NOT NULL,
+    `code`  NVARCHAR(20)  NOT NULL, -- 카테고리 코드
+    `name`  NVARCHAR(100) NOT NULL, -- 카테고리 이름
     CONSTRAINT PRIMARY KEY (`index`),
     CONSTRAINT UNIQUE (`code`)
 );
 
+-- //상품
 CREATE TABLE `shopping-mall`.`products`
 (
-    `index`              INT UNSIGNED  NOT NULL AUTO_INCREMENT, -- (PK)
-    `member_index`       INT UNSIGNED  NOT NULL,                -- (FK) : 자기가 올린 상품 뭔지 알 수 있도록 한다
-    `product_name`       NVARCHAR(100) NOT NULL,                -- : 상품명
-    `product_category`   NVARCHAR(20)  NOT NULL,                -- (FK) : 카테고리 넘버
-    `product_price`      INT UNSIGNED  NOT NULL,                -- : 상품 가격
-    -- product_stock : 상품 개수
-    -- `product_size`           INT UNSIGNED  NOT NULL,                -- : 상품이 옷일 경우
-    `image`              LONGBLOB      NOT NULL,                -- 1,2,3 : 대표 이미지, 추가 이미지2,3
-    `product_created_at` DATETIME      NOT NULL DEFAULT NOW(),  -- : 등록일(=수정일)
-    `product_hit`        INT           NOT NULL DEFAULT 0,      -- : 좋아요 수
-    `product_content`    LONGTEXT      NOT NULL,                -- : 상세설명
-    `product_views`      INT UNSIGNED  NOT NULL DEFAULT 0,-- : 상품 조회수
+    `index`              INT UNSIGNED  NOT NULL AUTO_INCREMENT,
+    `member_index`       INT UNSIGNED  NOT NULL,               -- 사용자 인덱스
+    `product_name`       NVARCHAR(100) NOT NULL,               -- 상품명
+    `product_category`   NVARCHAR(20)  NOT NULL,               -- 카테고리 코드
+    `product_price`      INT UNSIGNED  NOT NULL,               -- 상품 가격
+    `image`              LONGBLOB      NOT NULL,               -- 대표 이미지
+    `product_created_at` DATETIME      NOT NULL DEFAULT NOW(), -- 등록일(=수정일)
+    `product_hit`        INT           NOT NULL DEFAULT 0,     -- 좋아요 수
+    `product_content`    LONGTEXT      NOT NULL,               -- 상세설명
+    `product_views`      INT UNSIGNED  NOT NULL DEFAULT 0,     -- 상품 조회수
     CONSTRAINT PRIMARY KEY (`index`),
     CONSTRAINT FOREIGN KEY (`member_index`) REFERENCES `shopping-mall`.`members` (`index`)
         ON DELETE CASCADE
@@ -58,12 +58,13 @@ CREATE TABLE `shopping-mall`.`products`
         ON UPDATE CASCADE
 );
 
+-- //서브 카테고리
 CREATE TABLE `shopping-mall`.`product_categories_sub`
 (
     `index`           INT UNSIGNED  NOT NULL AUTO_INCREMENT,
-    `categories_code` NVARCHAR(20)  NOT NULL,
-    `code`            NVARCHAR(20)  NOT NULL,
-    `name`            NVARCHAR(100) NOT NULL,
+    `categories_code` NVARCHAR(20)  NOT NULL, -- 메인 카테고리 코드
+    `code`            NVARCHAR(20)  NOT NULL, -- 서브 카테고리 코드
+    `name`            NVARCHAR(100) NOT NULL, -- 서브 카테고리 이름
     CONSTRAINT PRIMARY KEY (`index`),
     CONSTRAINT UNIQUE (`code`),
     CONSTRAINT FOREIGN KEY (`categories_code`) REFERENCES `shopping-mall`.`product_categories` (`code`)
@@ -71,12 +72,13 @@ CREATE TABLE `shopping-mall`.`product_categories_sub`
         ON UPDATE CASCADE
 );
 
+-- //상품 등록시, 서브 카테고리
 CREATE TABLE `shopping-mall`.`products_sub`
 (
     `index`               INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `member_index`        INT UNSIGNED NOT NULL,
-    `product_index`       INT UNSIGNED NOT NULL,
-    `product_subCategory` NVARCHAR(20) NOT NULL,
+    `member_index`        INT UNSIGNED NOT NULL, -- 사용자 인덱스
+    `product_index`       INT UNSIGNED NOT NULL, -- 상품 인덱스
+    `product_subCategory` NVARCHAR(20) NOT NULL, -- 상품 서브 카테고리 코드
     CONSTRAINT PRIMARY KEY (`index`),
     CONSTRAINT FOREIGN KEY (`product_index`) REFERENCES `shopping-mall`.`products` (`index`)
         ON DELETE CASCADE
@@ -89,7 +91,7 @@ CREATE TABLE `shopping-mall`.`products_sub`
         ON UPDATE CASCADE
 );
 
-
+-- //메인 카테고리 INSERT
 INSERT INTO `shopping-mall`.`product_categories`(`code`, `name`)
 VALUES ('best', '베스트'),
        ('new', '신상'),
@@ -105,7 +107,7 @@ VALUES ('best', '베스트'),
        ('accessories', '악세서리');
 
 
-
+-- //서브 카테고리 INSERT
 INSERT INTO `shopping-mall`.`product_categories_sub`(`categories_code`, `code`, `name`)
 VALUES ('outer', 'vest', '가디건/조끼'),
        ('outer', 'jumper', '야상/점퍼'),
@@ -130,35 +132,38 @@ VALUES ('outer', 'vest', '가디건/조끼'),
        ('accessories', 'hat', '모자/벨트'),
        ('accessories', 'socks', '양말/스타킹');
 
+-- //상품 사이즈
 CREATE TABLE `shopping-mall`.`product_option_sizes`
 (
     `index`         INT UNSIGNED  NOT NULL AUTO_INCREMENT,
-    `product_index` INT UNSIGNED  NOT NULL,
-    `name`          NVARCHAR(100) NOT NULL,
+    `product_index` INT UNSIGNED  NOT NULL, -- 해당 상품 인덱스
+    `name`          NVARCHAR(100) NOT NULL, -- 사이즈 이름
     CONSTRAINT PRIMARY KEY (`index`),
     CONSTRAINT FOREIGN KEY (`product_index`) REFERENCES `shopping-mall`.`products` (`index`)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
 
+-- //상품 색상
 CREATE TABLE `shopping-mall`.`product_option_colors`
 (
     `index`         INT UNSIGNED  NOT NULL AUTO_INCREMENT,
-    `product_index` INT UNSIGNED  NOT NULL,
-    `name`          NVARCHAR(100) NOT NULL,
+    `product_index` INT UNSIGNED  NOT NULL, -- 해당 상품 인덱스
+    `name`          NVARCHAR(100) NOT NULL, -- 색상 이름
     CONSTRAINT PRIMARY KEY (`index`),
     CONSTRAINT FOREIGN KEY (`product_index`) REFERENCES `shopping-mall`.`products` (`index`)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
 
+-- //해당 상품 사이즈, 색상의 추가 금액과 상품 개수
 CREATE TABLE `shopping-mall`.`product_option_detail`
 (
     `index`               INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `product_size_index`  INT UNSIGNED NOT NULL,
-    `product_color_index` INT UNSIGNED NOT NULL,
-    `premium`             INT DEFAULT 0,
-    `stock`               INT DEFAULT 0,
+    `product_size_index`  INT UNSIGNED NOT NULL, -- 사이즈 인덱스
+    `product_color_index` INT UNSIGNED NOT NULL, -- 색상 인덱스
+    `premium`             INT DEFAULT 0,         -- 추가 금액
+    `stock`               INT DEFAULT 0,         -- 개수
     CONSTRAINT PRIMARY KEY (`index`),
     CONSTRAINT FOREIGN KEY (`product_size_index`) REFERENCES `shopping-mall`.`product_option_sizes` (`index`)
         ON DELETE CASCADE
@@ -168,13 +173,7 @@ CREATE TABLE `shopping-mall`.`product_option_detail`
         ON UPDATE CASCADE
 );
 
--- color foreign key 로 추가 (수정)
-ALTER TABLE `shopping-mall`.`product_option_detail`
-    ADD CONSTRAINT
-        FOREIGN KEY (`product_color_index`) REFERENCES `shopping-mall`.`product_option_colors` (`index`)
-            ON DELETE CASCADE
-            ON UPDATE CASCADE;
-
+-- //상품 상세 내용 이미지
 CREATE TABLE `shopping-mall`.`product_images`
 (
     `index` INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -184,32 +183,34 @@ CREATE TABLE `shopping-mall`.`product_images`
     CONSTRAINT UNIQUE (`key`)
 );
 
+-- //총 주문 내역
 CREATE TABLE `shopping-mall`.`orders`
 (
     `index`                INT UNSIGNED  NOT NULL AUTO_INCREMENT,
-    `member_index`         INT UNSIGNED  NOT NULL,
-    `order_total_price`    INT UNSIGNED  NOT NULL DEFAULT 0,
-    `payment_state`        BOOLEAN       NOT NULL DEFAULT FALSE,
-    `order_address_post`   NVARCHAR(5)   NOT NULL,
-    `order_address`        NVARCHAR(100) NOT NULL,
-    `order_address_detail` NVARCHAR(100) NOT NULL,
-    `order_date`           DATETIME      NOT NULL DEFAULT NOW(),
+    `member_index`         INT UNSIGNED  NOT NULL,                 -- 사용자 인덱스
+    `order_total_price`    INT UNSIGNED  NOT NULL DEFAULT 0,       -- 주문한 총 가격
+    `payment_state`        BOOLEAN       NOT NULL DEFAULT FALSE,   -- 결제 완료 유무
+    `order_address_post`   NVARCHAR(5)   NOT NULL,                 -- 배송될 우편번호
+    `order_address`        NVARCHAR(100) NOT NULL,                 -- 배송될 주소
+    `order_address_detail` NVARCHAR(100) NOT NULL,                 -- 배송될 상세 주소
+    `order_date`           DATETIME      NOT NULL DEFAULT NOW(),   -- 주문한 날짜
     CONSTRAINT PRIMARY KEY (`index`),
     CONSTRAINT FOREIGN KEY (`member_index`) REFERENCES `shopping-mall`.`members` (`index`)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
 
+-- //총 주문 내역의 상품 상세 내용
 CREATE TABLE `shopping-mall`.`orders_product`
 (
     `index`                INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `member_index`         INT UNSIGNED NOT NULL,
-    `order_index`          INT UNSIGNED NOT NULL,
-    `product_index`        INT UNSIGNED NOT NULL,
-    `product_size_index`   INT UNSIGNED NOT NULL,
-    `product_color_index`  INT UNSIGNED NOT NULL,
-    `order_count`          INT UNSIGNED NOT NULL DEFAULT 0,
-    `order_subtotal_price` INT UNSIGNED NOT NULL DEFAULT 0,
+    `member_index`         INT UNSIGNED NOT NULL,            -- 사용자 인덱스
+    `order_index`          INT UNSIGNED NOT NULL,            -- 주문 번호
+    `product_index`        INT UNSIGNED NOT NULL,            -- 상품 인덱스
+    `product_size_index`   INT UNSIGNED NOT NULL,            -- 상품 사이즈 인덱스
+    `product_color_index`  INT UNSIGNED NOT NULL,            -- 상품 색상 인덱스
+    `order_count`          INT UNSIGNED NOT NULL DEFAULT 0,  -- 주문 개수
+    `order_subtotal_price` INT UNSIGNED NOT NULL DEFAULT 0,  -- 해당 상품 가격 (원가)
     CONSTRAINT PRIMARY KEY (`index`),
     CONSTRAINT FOREIGN KEY (`member_index`) REFERENCES `shopping-mall`.`members` (`index`)
         ON DELETE CASCADE
@@ -228,28 +229,29 @@ CREATE TABLE `shopping-mall`.`orders_product`
         ON UPDATE CASCADE
 );
 
+-- //결제 수단
 CREATE TABLE `shopping-mall`.`payment`
 (
     `index`          INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `order_index`    INT UNSIGNED NOT NULL,
-    `payment_method` NVARCHAR(50) NOT NULL,
-    `payment_date`   DATETIME     NOT NULL DEFAULT NOW(),
+    `order_index`    INT UNSIGNED NOT NULL,               -- 주문 번호
+    `payment_method` NVARCHAR(50) NOT NULL,               -- 결제 방법
+    `payment_date`   DATETIME     NOT NULL DEFAULT NOW(), -- 결제 날짜
     CONSTRAINT PRIMARY KEY (`index`),
     CONSTRAINT FOREIGN KEY (`order_index`) REFERENCES `shopping-mall`.`orders` (`index`)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
 
-
+-- //장바구니
 CREATE TABLE `shopping-mall`.`carts`
 (
     `index`               INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `product_index`       INT UNSIGNED NOT NULL,
-    `member_index`        INT UNSIGNED NOT NULL,
-    `product_size_index`  INT UNSIGNED NOT NULL,
-    `product_color_index` INT UNSIGNED NOT NULL,
-    `cart_count`          INT UNSIGNED NOT NULL DEFAULT 0,
-    `cart_subtotal_price` INT UNSIGNED NOT NULL DEFAULT 0,
+    `product_index`       INT UNSIGNED NOT NULL,             -- 상품 인덱스
+    `member_index`        INT UNSIGNED NOT NULL,             -- 사용자 인덱스
+    `product_size_index`  INT UNSIGNED NOT NULL,             -- 상품 사이즈 인덱스
+    `product_color_index` INT UNSIGNED NOT NULL,             -- 상품 색상 인덱스
+    `cart_count`          INT UNSIGNED NOT NULL DEFAULT 0,   -- 상품 개수
+    `cart_subtotal_price` INT UNSIGNED NOT NULL DEFAULT 0,   -- 상품 가격
     CONSTRAINT PRIMARY KEY (`index`),
     CONSTRAINT FOREIGN KEY (`product_index`) REFERENCES `shopping-mall`.`products` (`index`)
         ON DELETE CASCADE
@@ -265,15 +267,16 @@ CREATE TABLE `shopping-mall`.`carts`
         ON UPDATE CASCADE
 );
 
+-- //결제 후, 리뷰
 CREATE TABLE `shopping-mall`.`product_review`
 (
     `index`             INT UNSIGNED  NOT NULL AUTO_INCREMENT,
-    `product_index`     INT UNSIGNED  NOT NULL,
-    `member_index`      INT UNSIGNED  NOT NULL,
-    `order_index`       INT UNSIGNED  NOT NULL,
-    `content`           NVARCHAR(100) NOT NULL,
-    `ratingOptions`     INT UNSIGNED  NOT NULL DEFAULT 0,
-    `review_created_at` DATETIME      NOT NULL DEFAULT NOW(),
+    `product_index`     INT UNSIGNED  NOT NULL,               -- 상품 인덱스
+    `member_index`      INT UNSIGNED  NOT NULL,               -- 사용자 인덱스
+    `order_index`       INT UNSIGNED  NOT NULL,               -- 주문 번호
+    `content`           NVARCHAR(100) NOT NULL,               -- 리뷰 내용
+    `ratingOptions`     INT UNSIGNED  NOT NULL DEFAULT 0,     -- 리뷰 별점
+    `review_created_at` DATETIME      NOT NULL DEFAULT NOW(), -- 리뷰 등록 날짜
     CONSTRAINT PRIMARY KEY (`index`),
     CONSTRAINT `ratingOptions_check` CHECK (`ratingOptions` <= 5),
     CONSTRAINT FOREIGN KEY (`product_index`) REFERENCES `shopping-mall`.`products` (`index`)
@@ -287,12 +290,13 @@ CREATE TABLE `shopping-mall`.`product_review`
         ON UPDATE CASCADE
 );
 
+-- //좋아요
 CREATE TABLE `shopping-mall`.`product_likes`
 (
     `index`           INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `member_index`    INT UNSIGNED NOT NULL,
-    `product_index`   INT UNSIGNED NOT NULL,
-    `like_created_at` DATETIME     NOT NULL DEFAULT NOW(),
+    `member_index`    INT UNSIGNED NOT NULL,                -- 사용자 인덱스
+    `product_index`   INT UNSIGNED NOT NULL,                -- 상품 인덱스
+    `like_created_at` DATETIME     NOT NULL DEFAULT NOW(),  -- 좋아요 등록 날짜
     CONSTRAINT PRIMARY KEY (`index`),
     CONSTRAINT FOREIGN KEY (`product_index`) REFERENCES `shopping-mall`.`products` (`index`)
         ON DELETE CASCADE
