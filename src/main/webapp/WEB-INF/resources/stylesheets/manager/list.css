@@ -1,8 +1,0 @@
-main.list-wrap > div.list > ul{
-    float: left;
-    overflow: auto;
-}
-
-main.list-wrap > div.list > ul > li{
-    margin-right: 5px;
-}
